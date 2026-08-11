@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand palette — warm, earthy, editorial (not generic teal-tropical) */
+  --color-cream: #faf5ee;
+  --color-cream-soft: #f2ebe0;
+  --color-ink: #2b2420;
+  --color-ink-soft: #5c5248;
+  --color-rust: #b5502d;
+  --color-rust-dark: #8f3e21;
+  --color-sage: #7c8b6f;
+  --color-gold: #c9a24b;
+
+  --font-display: 'PT Serif', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+
+  --radius-card: 20px;
+
+  --shadow-soft: 0 12px 30px -12px rgb(43 36 32 / 0.18);
+  --shadow-soft-lg: 0 24px 48px -16px rgb(43 36 32 / 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    line-height: 1.15;
+  }
+}
