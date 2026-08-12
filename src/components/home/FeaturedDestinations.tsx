@@ -17,11 +17,11 @@ export function FeaturedDestinations() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {featuredDestinations.map((destination) => (
-            <Link
-              key={destination.id}
-              to="/destinatsii"
-              aria-label={`${destination.title} — види ги сите дестинации`}
-            >
+              <Link
+                  key={destination.id}
+                  to={`/destinatsii/${destination.id}`}
+                  aria-label={`${destination.title} — прочитај повеќе`}
+              >
               <Card padded={false} className="group flex h-full flex-col">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
