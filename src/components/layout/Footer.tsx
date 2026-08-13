@@ -1,85 +1,98 @@
-import { NavLink } from 'react-router-dom'
-import { EnvelopeSimple, InstagramLogo, FacebookLogo, Phone } from '@phosphor-icons/react'
-import { Wordmark } from '../../assets/logo/Wordmark'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from '@phosphor-icons/react'
 import { Container } from '../ui/Container'
-import { brand, contact, navLinks, social } from '../../data/site'
-
-const socialIcons = {
-  Instagram: InstagramLogo,
-  Facebook: FacebookLogo,
-} as const
+import { Wordmark } from '../../assets/logo/Wordmark'
+import { social } from '../../data/site'
 
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
-    <footer className="border-t border-ink/10 bg-cream-soft">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div className="flex flex-col gap-4">
-          <Wordmark />
-          <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
-            {brand.shortBlurb}
-          </p>
-          <div className="flex gap-3 pt-1">
-            {social.map((item) => {
-              const Icon = socialIcons[item.label as keyof typeof socialIcons]
-              return (
+    <footer className="bg-ink text-cream">
+      <Container className="py-14 md:py-20">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_0.6fr_0.6fr]">
+          <div>
+            <Link to="/" className="inline-block">
+              <Wordmark variant="cream" />
+            </Link>
+
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/55">
+              Откриваме места со карактер, далеку од очигледните туристички
+              рути. Патувањето започнува таму каде што мапите завршуваат.
+            </p>
+          </div>
+
+          <div>
+            <span className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-cream/35">
+              Навигација
+            </span>
+
+            <nav className="mt-5 flex flex-col items-start gap-3">
+              <Link
+                to="/"
+                className="text-sm text-cream/65 transition-colors hover:text-cream"
+              >
+                Почетна
+              </Link>
+
+              <Link
+                to="/destinatsii"
+                className="text-sm text-cream/65 transition-colors hover:text-cream"
+              >
+                Дестинации
+              </Link>
+
+              <Link
+                  to="/dnevnik"
+                  className="text-sm text-cream/65 transition-colors hover:text-cream"
+              >
+                Дневник
+              </Link>
+
+              <Link
+                to="/za-nas"
+                className="text-sm text-cream/65 transition-colors hover:text-cream"
+              >
+                За нас
+              </Link>
+
+              <Link
+                to="/kontakt"
+                className="text-sm text-cream/65 transition-colors hover:text-cream"
+              >
+                Контакт
+              </Link>
+            </nav>
+          </div>
+
+          <div>
+            <span className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-cream/35">
+              Следете нè
+            </span>
+
+            <div className="mt-5 flex flex-col items-start gap-3">
+              {social.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  aria-label={item.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink-soft transition-colors hover:border-rust hover:text-rust"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 text-sm text-cream/65 transition-colors hover:text-cream"
                 >
-                  <Icon size={18} weight="regular" />
+                  {item.label}
+                  <ArrowUpRight
+                    size={15}
+                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                 </a>
-              )
-            })}
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <h3 className="font-body text-sm font-semibold uppercase tracking-[0.14em] text-ink">
-            Брзи линкови
-          </h3>
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className="text-sm text-ink-soft transition-colors hover:text-rust"
-            >
-              {link.label}
-            </NavLink>
-          ))}
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <h3 className="font-body text-sm font-semibold uppercase tracking-[0.14em] text-ink">
-            Контакт
-          </h3>
-          <a
-            href={`mailto:${contact.email}`}
-            className="flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-rust"
-          >
-            <EnvelopeSimple size={18} />
-            {contact.email}
-          </a>
-          <a
-            href={`tel:${contact.phone.replace(/\s/g, '')}`}
-            className="flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-rust"
-          >
-            <Phone size={18} />
-            {contact.phone}
-          </a>
+        <div className="mt-14 flex flex-col gap-3 border-t border-cream/10 pt-6 text-xs text-cream/35 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} Calliste Travel.</span>
+          <span>Патувај подалеку од мапата.</span>
         </div>
       </Container>
-
-      <div className="border-t border-ink/10 py-6">
-        <Container>
-          <p className="text-xs text-ink-soft">
-            © {year} {brand.name}. Сите права задржани.
-          </p>
-        </Container>
-      </div>
     </footer>
   )
 }

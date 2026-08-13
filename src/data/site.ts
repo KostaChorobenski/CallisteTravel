@@ -15,6 +15,7 @@ export type NavLink = {
 export const navLinks: NavLink[] = [
   { label: 'Дома', path: '/' },
   { label: 'Дестинации', path: '/destinatsii' },
+  { label: 'Дневник', path: '/dnevnik' },
   { label: 'За нас', path: '/za-nas' },
   { label: 'Контакт', path: '/kontakt' },
 ]

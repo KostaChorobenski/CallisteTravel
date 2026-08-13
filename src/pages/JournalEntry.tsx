@@ -1,0 +1,93 @@
+import { motion } from 'framer-motion'
+import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react'
+import { Link, useParams } from 'react-router-dom'
+import { Container } from '../components/ui/Container'
+import { journalEntryById } from '../data/journal'
+import { NotFound } from './NotFound'
+
+export function JournalEntry() {
+    const { id } = useParams()
+    const entry = id ? journalEntryById(id) : undefined
+
+    if (!entry) {
+        return <NotFound />
+    }
+
+    return (
+        <main>
+            <section className="border-b border-ink/10 bg-cream-soft">
+                <Container className="py-20 md:py-28">
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className="max-w-4xl"
+                    >
+                        <Link
+                            to="/dnevnik"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-ink-soft transition-colors hover:text-rust"
+                        >
+                            <ArrowLeft size={17} />
+                            Назад кон дневникот
+                        </Link>
+
+                        <div className="mt-10">
+              <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+                {entry.category}
+              </span>
+
+                            <h1 className="mt-5 text-5xl leading-[1.05] md:text-7xl">
+                                {entry.title}
+                            </h1>
+
+                            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
+                                {entry.excerpt}
+                            </p>
+                        </div>
+                    </motion.div>
+                </Container>
+            </section>
+
+            <section className="py-20 md:py-28">
+                <Container>
+                    <motion.article
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="mx-auto max-w-3xl"
+                    >
+                        <div className="space-y-7 text-lg leading-[1.8] text-ink-soft">
+                            {entry.content.map((paragraph) => (
+                                <p key={paragraph}>{paragraph}</p>
+                            ))}
+                        </div>
+                    </motion.article>
+                </Container>
+            </section>
+
+            <section className="bg-cream-soft py-20 md:py-24">
+                <Container>
+                    <div className="flex flex-col gap-8 rounded-card bg-rust p-8 text-cream md:flex-row md:items-center md:justify-between md:p-12">
+                        <div>
+              <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-cream/70">
+                Продолжи да истражуваш
+              </span>
+
+                            <h2 className="mt-4 text-3xl md:text-4xl">
+                                Следната приказна можеби е само еден клик подалеку.
+                            </h2>
+                        </div>
+
+                        <Link
+                            to="/dnevnik"
+                            className="inline-flex w-fit shrink-0 items-center gap-2 text-sm font-semibold text-cream transition-transform hover:translate-x-1"
+                        >
+                            Назад кон дневникот
+                            <ArrowUpRight size={18} />
+                        </Link>
+                    </div>
+                </Container>
+            </section>
+        </main>
+    )
+}

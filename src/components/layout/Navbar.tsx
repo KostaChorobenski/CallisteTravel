@@ -1,35 +1,36 @@
-import { useEffect, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { List, X } from '@phosphor-icons/react'
 import { clsx } from 'clsx'
 import { Wordmark } from '../../assets/logo/Wordmark'
-import { Container } from '../ui/Container'
-import { Button } from '../ui/Button'
-import { navLinks } from '../../data/site'
+
+const links = [
+  { to: '/', label: 'Почетна' },
+  { to: '/destinatsii', label: 'Дестинации' },
+  { to: '/dnevnik', label: 'Дневник' },
+  { to: '/za-nas', label: 'За нас' },
+  { to: '/kontakt', label: 'Контакт' },
+]
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const location = useLocation()
-
-  useEffect(() => {
-    setIsMenuOpen(false)
-  }, [location.pathname])
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/90 backdrop-blur">
-      <Container className="flex h-20 items-center justify-between">
-        <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/95 backdrop-blur">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-6 md:px-10">
+        <Link to="/" onClick={() => setIsOpen(false)}>
           <Wordmark />
-        </NavLink>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <NavLink
-              key={link.path}
-              to={link.path}
+              key={link.to}
+              to={link.to}
+              end={link.to === '/'}
               className={({ isActive }) =>
                 clsx(
-                  'font-body text-sm font-medium transition-colors',
+                  'text-sm font-semibold transition-colors',
                   isActive ? 'text-rust' : 'text-ink-soft hover:text-ink',
                 )
               }
@@ -39,49 +40,39 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button to="/kontakt" variant="primary" className="text-sm">
-            Контактирај нè
-          </Button>
-        </div>
-
         <button
           type="button"
-          aria-label={isMenuOpen ? 'Затвори мени' : 'Отвори мени'}
-          aria-expanded={isMenuOpen}
-          className="cursor-pointer p-2 text-ink md:hidden"
-          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isOpen ? 'Затвори мени' : 'Отвори мени'}
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((value) => !value)}
+          className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
         >
-          {isMenuOpen ? <X size={28} /> : <List size={28} />}
+          {isOpen ? <X size={23} /> : <List size={23} />}
         </button>
-      </Container>
+      </div>
 
-      {isMenuOpen && (
-        <nav className="border-t border-ink/10 bg-cream md:hidden">
-          <Container className="flex flex-col gap-1 py-4">
-            {navLinks.map((link) => (
+      {isOpen && (
+        <nav className="border-t border-ink/10 bg-cream px-6 py-5 md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1">
+            {links.map((link) => (
               <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
                   clsx(
-                    'rounded-lg px-3 py-3 font-body text-base font-medium',
-                    isActive ? 'bg-cream-soft text-rust' : 'text-ink-soft',
+                    'rounded-xl px-4 py-3 text-sm font-semibold transition-colors',
+                    isActive
+                      ? 'bg-rust/10 text-rust'
+                      : 'text-ink-soft hover:bg-ink/5 hover:text-ink',
                   )
                 }
               >
                 {link.label}
               </NavLink>
             ))}
-            <Button
-              to="/kontakt"
-              variant="primary"
-              className="mt-2 justify-center"
-            >
-              Контактирај нè
-            </Button>
-          </Container>
+          </div>
         </nav>
       )}
     </header>
