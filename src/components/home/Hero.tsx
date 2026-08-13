@@ -1,36 +1,46 @@
+import { motion } from 'framer-motion'
+import { ArrowDown } from '@phosphor-icons/react'
 import { Container } from '../ui/Container'
 import { Button } from '../ui/Button'
 import { heroImage } from '../../data/destinations'
 
 export function Hero() {
   return (
-      <section className="relative isolate overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img
-              src={heroImage}
-              alt="Осамен залив со кристално бистра вода, гледан од воздух"
-              className="h-full w-full object-cover"
-          />
+    <section className="relative isolate min-h-[calc(100dvh-5rem)] overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={heroImage}
+          alt="Осамен залив со кристално бистра вода, гледан од воздух"
+          className="h-full w-full object-cover"
+        />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/10" />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/10" />
+      </div>
 
-        <Container className="flex min-h-[78svh] flex-col justify-end gap-5 py-14 sm:min-h-[82svh] sm:gap-6 sm:py-20 md:min-h-[90vh] md:gap-8 md:py-28">
-        <span className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-cream/80 sm:text-sm">
-          Calliste Travel
-        </span>
+      <Container className="flex min-h-[calc(100dvh-5rem)] flex-col justify-end py-16 md:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="max-w-4xl"
+        >
+          <span className="font-body text-xs font-semibold uppercase tracking-[0.24em] text-cream/75 md:text-sm">
+            Calliste Travel
+          </span>
 
-          <h1 className="max-w-3xl text-4xl leading-[1.05] text-cream sm:text-5xl md:text-6xl">
-            Таму каде мапите завршуваат
+          <h1 className="mt-5 max-w-4xl text-5xl leading-[0.98] text-cream sm:text-6xl md:text-7xl lg:text-8xl">
+            Таму каде
+            <br />
+            <span className="text-cream/80">мапите завршуваат.</span>
           </h1>
 
-          <p className="max-w-xl text-base leading-relaxed text-cream/85 md:text-lg">
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">
             Откриваме скриени, непознати кутчиња од светот и ве водиме кон нив —
-            со локални водичи, кураторски дестинации и приказни што траат
-            подолго од патувањето.
+            со локални приказни, внимателно избрани дестинации и моменти што
+            остануваат долго по патувањето.
           </p>
 
-          <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4">
+          <div className="flex flex-wrap gap-4 pt-8">
             <Button to="/destinatsii" variant="primary">
               Истражи ги дестинациите
             </Button>
@@ -39,7 +49,19 @@ export function Hero() {
               Дознај повеќе
             </Button>
           </div>
-        </Container>
-      </section>
+        </motion.div>
+
+        <motion.a
+          href="#featured-destinations"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-14 flex w-fit items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-cream/60 transition-colors hover:text-cream"
+        >
+          Скролувај за да истражиш
+          <ArrowDown size={16} className="animate-bounce" />
+        </motion.a>
+      </Container>
+    </section>
   )
 }

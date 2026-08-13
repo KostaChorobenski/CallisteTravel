@@ -1,58 +1,96 @@
+import { motion } from 'framer-motion'
 import {
   Compass,
+  Heart,
+  MapTrifold,
   Sparkle,
-  UsersThree,
-  Leaf,
-  type Icon,
 } from '@phosphor-icons/react'
 import { Container } from '../ui/Container'
 import { SectionHeading } from '../ui/SectionHeading'
-import { valuePillars } from '../../data/site'
 
-const iconMap: Record<(typeof valuePillars)[number]['icon'], Icon> = {
-  Compass,
-  Sparkle,
-  UsersThree,
-  Leaf,
-}
+const reasons = [
+  {
+    icon: Compass,
+    title: 'Љубопитност',
+    description:
+      'Секогаш бараме што се наоѓа зад следниот свиок, надвор од очигледните туристички рути.',
+  },
+  {
+    icon: MapTrifold,
+    title: 'Места со карактер',
+    description:
+      'Не избираме дестинации само затоа што изгледаат убаво. Бараме места со приказна и душа.',
+  },
+  {
+    icon: Heart,
+    title: 'Локално искуство',
+    description:
+      'Веруваме дека најдобрите спомени доаѓаат од луѓето, храната и малите детали што го прават местото посебно.',
+  },
+  {
+    icon: Sparkle,
+    title: 'Приказни што остануваат',
+    description:
+      'Патувањето завршува кога ќе се вратите дома. Приказната што сте ја создале не мора.',
+  },
+]
 
 export function WhyCalliste() {
   return (
-      <section className="bg-cream-soft py-16 sm:py-20 md:py-28">
-        <Container className="flex flex-col gap-10 sm:gap-12">
-          <SectionHeading
-              eyebrow="Зошто Calliste"
-              title="Патувања дизајнирани околу приказната, не околу чек-листата"
-              align="center"
-              description="Не сме класична агенција за пакет-аранжмани. Секое патување е грижливо составено да ве доближи до вистинскиот карактер на местото."
-              className="mx-auto"
-          />
+    <section className="bg-ink py-20 text-cream md:py-28">
+      <Container>
+        <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr] md:gap-20">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionHeading
+              eyebrow="Зошто Calliste?"
+              title="Не сакаме само да ви покажеме каде да одите."
+              description="Сакаме да ви дадеме причина да тргнете."
+              className="[&>h2]:text-cream [&>p]:text-cream/60 [&>span]:text-rust"
+            />
+          </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8">
-            {valuePillars.map((pillar) => {
-              const IconComponent = iconMap[pillar.icon]
+          <div className="grid gap-px overflow-hidden rounded-card border border-cream/10 bg-cream/10 sm:grid-cols-2">
+            {reasons.map((reason, index) => {
+              const Icon = reason.icon
 
               return (
-                  <div
-                      key={pillar.title}
-                      className="group rounded-card p-5 transition-colors duration-300 hover:bg-cream sm:p-6"
-                  >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-rust/10 text-rust transition-transform duration-300 group-hover:scale-105">
-                  <IconComponent size={24} weight="regular" />
-                </span>
+                <motion.div
+                  key={reason.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.08,
+                  }}
+                  className="group bg-ink p-7 transition-colors duration-300 hover:bg-ink/80 md:p-8"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-rust/15 text-rust transition-colors duration-300 group-hover:bg-rust group-hover:text-cream">
+                    <Icon size={22} />
+                  </span>
 
-                    <h3 className="mt-5 text-lg">
-                      {pillar.title}
-                    </h3>
+                  <h3 className="mt-6 text-xl text-cream">
+                    {reason.title}
+                  </h3>
 
-                    <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                      {pillar.description}
-                    </p>
-                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-cream/55">
+                    {reason.description}
+                  </p>
+
+                  <span className="mt-8 block text-xs font-semibold uppercase tracking-[0.16em] text-cream/25">
+                    0{index + 1}
+                  </span>
+                </motion.div>
               )
             })}
           </div>
-        </Container>
-      </section>
+        </div>
+      </Container>
+    </section>
   )
 }
