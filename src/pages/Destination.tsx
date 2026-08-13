@@ -20,6 +20,7 @@ export function Destination() {
 
   return (
     <main>
+      {/* Hero */}
       <section className="relative isolate min-h-[65vh] overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img
@@ -59,6 +60,7 @@ export function Destination() {
         </Container>
       </section>
 
+      {/* Description + location card */}
       <section className="py-20 md:py-28">
         <Container>
           <div className="grid gap-14 md:grid-cols-[1fr_0.75fr] md:gap-24">
@@ -80,6 +82,7 @@ export function Destination() {
                 {destination.description}
               </p>
 
+              {/* Tags */}
               <div className="mt-8 flex flex-wrap gap-2">
                 {destination.tags.map((tag) => (
                   <span
@@ -90,8 +93,31 @@ export function Destination() {
                   </span>
                 ))}
               </div>
+
+              {/* Highlights */}
+              <div className="mt-10">
+                <h3 className="text-xl">
+                  Што да не пропуштите
+                </h3>
+
+                <div className="mt-5 grid gap-3">
+                  {destination.highlights.map((highlight) => (
+                    <div
+                      key={highlight}
+                      className="flex items-start gap-3 rounded-xl bg-cream-soft px-5 py-4"
+                    >
+                      <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-rust" />
+
+                      <p className="text-sm leading-relaxed text-ink-soft">
+                        {highlight}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
+            {/* Location card */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -132,7 +158,67 @@ className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-rust t
 </Container>
 </section>
 
+{/* Gallery */}
 <section className="bg-cream-soft py-20 md:py-28">
+    <Container>
+        <div className="mb-10">
+            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+              Галерија
+            </span>
+
+            <h2 className="mt-4 text-3xl md:text-5xl">
+                Погледнете го местото.
+            </h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5 }}
+                className="overflow-hidden rounded-card md:row-span-2"
+            >
+                <img
+                    src={destination.gallery[0]}
+                    alt={`${destination.title} — фотографија 1`}
+                    className="h-full min-h-[300px] w-full object-cover transition-transform duration-700 hover:scale-105 md:min-h-[620px]"
+                />
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="overflow-hidden rounded-card"
+            >
+                <img
+                    src={destination.gallery[1]}
+                    alt={`${destination.title} — фотографија 2`}
+                    className="h-[300px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="overflow-hidden rounded-card"
+            >
+                <img
+                    src={destination.gallery[2]}
+                    alt={`${destination.title} — фотографија 3`}
+                    className="h-[300px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+            </motion.div>
+        </div>
+    </Container>
+</section>
+
+{/* Map */}
+<section className="py-20 md:py-28">
     <Container>
         <div className="mb-10">
             <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
@@ -154,6 +240,7 @@ className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-rust t
     </Container>
 </section>
 
+{/* CTA */}
 <section className="py-20 md:py-28">
     <Container>
         <div className="flex flex-col gap-8 rounded-card bg-rust p-8 text-cream md:flex-row md:items-center md:justify-between md:p-12">

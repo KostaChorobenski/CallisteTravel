@@ -1,13 +1,61 @@
+import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from '@phosphor-icons/react'
-import { Link } from 'react-router-dom'
 import { Container } from '../components/ui/Container'
 import { DestinationsMap } from '../components/destinations/DestinationsMap'
-import { featuredDestinations, heroImage } from '../data/destinations'
+import { DestinationCard } from '../components/destinations/DestinationCard'
+import {
+  featuredDestinations,
+  heroImage,
+} from '../data/destinations'
+
+type RegionFilter = 'all' | 'Европа' | 'Азија' | 'Африка'
+type TypeFilter = 'all' | 'nature' | 'culture' | 'adventure'
+
+const regions: RegionFilter[] = [
+  'all',
+  'Европа',
+  'Азија',
+  'Африка',
+]
+
+const typeLabels: Record<TypeFilter, string> = {
+  all: 'Сите',
+  nature: 'Природа',
+  culture: 'Култура',
+  adventure: 'Авантура',
+}
+
+const types: TypeFilter[] = [
+  'all',
+  'nature',
+  'culture',
+  'adventure',
+]
 
 export function Destinations() {
+  const [region, setRegion] = useState<RegionFilter>('all')
+  const [type, setType] = useState<TypeFilter>('all')
+
+  const filteredDestinations = useMemo(() => {
+    return featuredDestinations.filter((destination) => {
+      const matchesRegion =
+          region === 'all' || destination.region === region
+
+      const matchesType =
+          type === 'all' || destination.type === type
+
+      return matchesRegion && matchesType
+    })
+  }, [region, type])
+
+  const clearFilters = () => {
+    setRegion('all')
+    setType('all')
+  }
+
   return (
       <main>
+        {/* Hero */}
         <section className="relative isolate min-h-[55vh] overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <img
@@ -31,10 +79,9 @@ export function Destinations() {
             </span>
 
               <h1 className="mt-5 text-5xl leading-[1.05] text-cream md:text-7xl">
-                Места што не ги
+                Места што не ги{' '}
                 <span className="text-cream/75">
-                {' '}
-                  среќавате секој ден.
+                среќавате секој ден.
               </span>
               </h1>
 
@@ -47,6 +94,7 @@ export function Destinations() {
           </Container>
         </section>
 
+        {/* Destinations */}
         <section className="bg-cream-soft py-20 md:py-28">
           <Container>
             <div className="flex flex-col gap-4">
@@ -59,70 +107,89 @@ export function Destinations() {
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {featuredDestinations.map((destination, index) => (
-                  <motion.article
-                      key={destination.id}
-                      initial={{ opacity: 0, y: 25 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-60px' }}
-                      transition={{
-                        duration: 0.5,
-                        delay: index * 0.08,
-                      }}
-                      className="group overflow-hidden rounded-card bg-cream shadow-soft"
-                  >
-                    <Link
-                        to={`/destinatsii/${destination.id}`}
-                        className="block"
-                    >
-                      <div className="aspect-[16/10] overflow-hidden">
-                        <img
-                            src={destination.image}
-                            alt={destination.title}
-                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        />
-                      </div>
+            {/* Filters */}
+            <div className="mt-10 flex flex-col gap-6 border-y border-ink/10 py-6 md:flex-row md:items-center md:justify-between">
+              <div>
+              <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.14em] text-ink/40">
+                Регион
+              </span>
 
-                      <div className="p-7 md:p-8">
-                        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-rust">
-                          <span>{destination.country}</span>
-                          <span className="text-ink/30">·</span>
-                          <span>{destination.region}</span>
-                        </div>
+                <div className="flex flex-wrap gap-2">
+                  {regions.map((value) => (
+                      <button
+                          key={value}
+                          type="button"
+                          onClick={() => setRegion(value)}
+                          className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                              region === value
+                                  ? 'border-rust bg-rust text-cream'
+                                  : 'border-ink/10 text-ink-soft hover:border-rust/40 hover:text-rust'
+                          }`}
+                      >
+                        {value === 'all' ? 'Сите' : value}
+                      </button>
+                  ))}
+                </div>
+              </div>
 
-                        <div className="mt-3 flex items-start justify-between gap-6">
-                          <h3 className="text-2xl md:text-3xl">
-                            {destination.title}
-                          </h3>
+              <div>
+              <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.14em] text-ink/40">
+                Тип
+              </span>
 
-                          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink transition-all duration-200 group-hover:border-rust group-hover:bg-rust group-hover:text-cream">
-                        <ArrowUpRight size={19} />
-                      </span>
-                        </div>
-
-                        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
-                          {destination.excerpt}
-                        </p>
-
-                        <div className="mt-6 flex flex-wrap gap-2">
-                          {destination.tags.map((tag) => (
-                              <span
-                                  key={tag}
-                                  className="rounded-full border border-ink/10 px-3 py-1.5 text-xs text-ink-soft"
-                              >
-                          {tag}
-                        </span>
-                          ))}
-                        </div>
-                      </div>
-                    </Link>
-                  </motion.article>
-              ))}
+                <div className="flex flex-wrap gap-2">
+                  {types.map((value) => (
+                      <button
+                          key={value}
+                          type="button"
+                          onClick={() => setType(value)}
+                          className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                              type === value
+                                  ? 'border-rust bg-rust text-cream'
+                                  : 'border-ink/10 text-ink-soft hover:border-rust/40 hover:text-rust'
+                          }`}
+                      >
+                        {typeLabels[value]}
+                      </button>
+                  ))}
+                </div>
+              </div>
             </div>
+
+            {/* Results */}
+            {filteredDestinations.length > 0 ? (
+                <div className="mt-12 grid gap-6 md:grid-cols-2">
+                  {filteredDestinations.map((destination, index) => (
+                      <DestinationCard
+                          key={destination.id}
+                          destination={destination}
+                          index={index}
+                      />
+                  ))}
+                </div>
+            ) : (
+                <div className="mt-12 rounded-card border border-ink/10 bg-cream p-10 text-center">
+                  <h3 className="text-2xl">
+                    Нема дестинации со овие филтри.
+                  </h3>
+
+                  <p className="mt-3 text-sm text-ink-soft">
+                    Обидете се со друга комбинација на регион и тип.
+                  </p>
+
+                  <button
+                      type="button"
+                      onClick={clearFilters}
+                      className="mt-6 text-sm font-semibold text-rust transition-colors hover:text-rust-dark"
+                  >
+                    Исчисти филтри
+                  </button>
+                </div>
+            )}
           </Container>
         </section>
 
+        {/* Map */}
         <section className="py-20 md:py-28">
           <Container>
             <div className="mb-10">
