@@ -10,6 +10,7 @@ export function CookieBanner() {
 
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY)
+
     if (!stored) {
       setIsVisible(true)
     }
@@ -20,23 +21,35 @@ export function CookieBanner() {
     setIsVisible(false)
   }
 
-  if (!isVisible) return null
+  if (!isVisible) {
+    return null
+  }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[60] border-t border-ink/10 bg-cream/95 backdrop-blur">
-      <Container className="flex flex-col items-center gap-4 py-5 md:flex-row md:justify-between">
-        <p className="text-sm leading-relaxed text-ink-soft md:max-w-2xl">
-          {cookieBanner.message}
-        </p>
-        <div className="flex shrink-0 gap-3">
-          <Button variant="secondary" onClick={() => respond('rejected')}>
-            {cookieBanner.reject}
-          </Button>
-          <Button variant="primary" onClick={() => respond('accepted')}>
-            {cookieBanner.accept}
-          </Button>
-        </div>
-      </Container>
-    </div>
+      <div className="fixed inset-x-0 bottom-0 z-[60] border-t border-ink/10 bg-cream/95 shadow-soft backdrop-blur">
+        <Container className="flex flex-col gap-4 py-4 sm:py-5 md:flex-row md:items-center md:justify-between">
+          <p className="text-sm leading-relaxed text-ink-soft md:max-w-2xl">
+            {cookieBanner.message}
+          </p>
+
+          <div className="flex w-full shrink-0 gap-2 sm:w-auto sm:gap-3">
+            <Button
+                variant="secondary"
+                onClick={() => respond('rejected')}
+                className="flex-1 sm:flex-none"
+            >
+              {cookieBanner.reject}
+            </Button>
+
+            <Button
+                variant="primary"
+                onClick={() => respond('accepted')}
+                className="flex-1 sm:flex-none"
+            >
+              {cookieBanner.accept}
+            </Button>
+          </div>
+        </Container>
+      </div>
   )
 }
