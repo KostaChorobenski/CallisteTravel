@@ -1,3 +1,113 @@
+// import { useTranslation } from "react-i18next";
+// import { useState } from 'react'
+// import { Link, NavLink } from 'react-router-dom'
+// import { List, X } from '@phosphor-icons/react'
+// import { clsx } from 'clsx'
+// import { Wordmark } from '../../assets/logo/Wordmark'
+
+// const links = [
+//   { to: '/', label: 'Почетна' },
+//   { to: '/destinatsii', label: 'Дестинации' },
+//   { to: '/dnevnik', label: 'Дневник' },
+//   { to: '/za-nas', label: 'За нас' },
+//   { to: '/kontakt', label: 'Контакт' },
+// ]
+
+// export function Navbar() {
+//   const [isOpen, setIsOpen] = useState(false)
+//   const { t, i18n } = useTranslation();
+
+//   return (
+//     <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/95 backdrop-blur">
+//       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-6 md:px-10">
+//         <Link to="/" onClick={() => setIsOpen(false)}>
+//           <Wordmark />
+//         </Link>
+
+//         <nav className="hidden items-center gap-8 md:flex">
+//           {links.map((link) => (
+//             <NavLink
+//               key={link.to}
+//               to={link.to}
+//               end={link.to === '/'}
+//               className={({ isActive }) =>
+//                 clsx(
+//                   'text-sm font-semibold transition-colors',
+//                   isActive ? 'text-rust' : 'text-ink-soft hover:text-ink',
+//                 )
+//               }
+//             >
+//               {link.label}
+//             </NavLink>
+//           ))}
+//         </nav>
+
+//         <button
+//           type="button"
+//           aria-label={isOpen ? 'Затвори мени' : 'Отвори мени'}
+//           aria-expanded={isOpen}
+//           onClick={() => setIsOpen((value) => !value)}
+//           className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
+//         >
+//           {isOpen ? <X size={23} /> : <List size={23} />}
+//         </button>
+//       </div>
+
+//       {isOpen && (
+//         <nav className="border-t border-ink/10 bg-cream px-6 py-5 md:hidden">
+//           <div className="mx-auto flex max-w-6xl flex-col gap-1">
+//             {links.map((link) => (
+//               <NavLink
+//                 key={link.to}
+//                 to={link.to}
+//                 end={link.to === '/'}
+//                 onClick={() => setIsOpen(false)}
+//                 className={({ isActive }) =>
+//                   clsx(
+//                     'rounded-xl px-4 py-3 text-sm font-semibold transition-colors',
+//                     isActive
+//                       ? 'bg-rust/10 text-rust'
+//                       : 'text-ink-soft hover:bg-ink/5 hover:text-ink',
+//                   )
+//                 }
+//               >
+//                 {link.label}
+//               </NavLink>
+//             ))}
+//           </div>
+//         </nav>
+//       )}
+
+//       <div className="language-switcher">
+
+//         <button
+//           onClick={() => {
+//             i18n.changeLanguage("mk");
+//             localStorage.setItem("language", "mk");
+//           }}
+//         >
+//           MK
+//         </button>
+
+//         <span>|</span>
+
+//         <button
+//           onClick={() => {
+//             i18n.changeLanguage("en");
+//             localStorage.setItem("language", "en");
+//           }}
+//         >
+//           EN
+//         </button>
+
+//       </div>
+//     </header>
+//   )
+// }
+
+
+
+import { useTranslation } from "react-i18next";
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { List, X } from '@phosphor-icons/react'
@@ -5,53 +115,84 @@ import { clsx } from 'clsx'
 import { Wordmark } from '../../assets/logo/Wordmark'
 
 const links = [
-  { to: '/', label: 'Почетна' },
-  { to: '/destinatsii', label: 'Дестинации' },
-  { to: '/dnevnik', label: 'Дневник' },
-  { to: '/za-nas', label: 'За нас' },
-  { to: '/kontakt', label: 'Контакт' },
+  { to: '/', key: 'home' },
+  { to: '/destinatsii', key: 'destinations' },
+  { to: '/dnevnik', key: 'diary' },
+  { to: '/za-nas', key: 'about' },
+  { to: '/kontakt', key: 'contact' },
 ]
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false) // Renamed to avoid confusion
+  const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lang: string) => {  // ← Added type annotation
+    i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang);
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/95 backdrop-blur">
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-6 md:px-10">
-        <Link to="/" onClick={() => setIsOpen(false)}>
+        <Link to="/" onClick={() => setIsMenuOpen(false)}>
           <Wordmark />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === '/'}
-              className={({ isActive }) =>
-                clsx(
-                  'text-sm font-semibold transition-colors',
-                  isActive ? 'text-rust' : 'text-ink-soft hover:text-ink',
-                )
-              }
+        <div className="flex items-center gap-8">
+          <nav className="hidden items-center gap-8 md:flex">
+            {links.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) =>
+                  clsx(
+                    'text-sm font-semibold transition-colors',
+                    isActive ? 'text-rust' : 'text-ink-soft hover:text-ink',
+                  )
+                }
+              >
+                {t(`navbar.${link.key}`)}
+              </NavLink>
+            ))}
+          </nav>
+
+          {/* Language Switcher - Desktop */}
+          <div className="hidden items-center gap-2 text-sm font-semibold md:flex">
+            <button
+              onClick={() => changeLanguage("mk")}
+              className={clsx(
+                'transition-colors hover:text-ink',
+                i18n.language === 'mk' ? 'text-rust' : 'text-ink-soft'
+              )}
             >
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+              MK
+            </button>
+            <span className="text-ink-soft">|</span>
+            <button
+              onClick={() => changeLanguage("en")}
+              className={clsx(
+                'transition-colors hover:text-ink',
+                i18n.language === 'en' ? 'text-rust' : 'text-ink-soft'
+              )}
+            >
+              EN
+            </button>
+          </div>
+        </div>
 
         <button
           type="button"
-          aria-label={isOpen ? 'Затвори мени' : 'Отвори мени'}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((value) => !value)}
+          aria-label={isMenuOpen ? 'Затвори мени' : 'Отвори мени'}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((value) => !value)}
           className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
         >
-          {isOpen ? <X size={23} /> : <List size={23} />}
+          {isMenuOpen ? <X size={23} /> : <List size={23} />}
         </button>
       </div>
 
-      {isOpen && (
+      {isMenuOpen && (
         <nav className="border-t border-ink/10 bg-cream px-6 py-5 md:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-1">
             {links.map((link) => (
@@ -59,7 +200,7 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 end={link.to === '/'}
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsMenuOpen(false)}
                 className={({ isActive }) =>
                   clsx(
                     'rounded-xl px-4 py-3 text-sm font-semibold transition-colors',
@@ -69,9 +210,38 @@ export function Navbar() {
                   )
                 }
               >
-                {link.label}
+                {t(`navbar.${link.key}`)}
               </NavLink>
             ))}
+            
+            {/* Language Switcher - Mobile */}
+            <div className="mt-2 flex items-center gap-2 px-4 py-3 text-sm font-semibold">
+              <button
+                onClick={() => {
+                  changeLanguage("mk")
+                  setIsMenuOpen(false)
+                }}
+                className={clsx(
+                  'transition-colors hover:text-ink',
+                  i18n.language === 'mk' ? 'text-rust' : 'text-ink-soft'
+                )}
+              >
+                Македонски
+              </button>
+              <span className="text-ink-soft">|</span>
+              <button
+                onClick={() => {
+                  changeLanguage("en")
+                  setIsMenuOpen(false)
+                }}
+                className={clsx(
+                  'transition-colors hover:text-ink',
+                  i18n.language === 'en' ? 'text-rust' : 'text-ink-soft'
+                )}
+              >
+                English
+              </button>
+            </div>
           </div>
         </nav>
       )}
