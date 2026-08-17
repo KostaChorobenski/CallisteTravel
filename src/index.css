@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   /* Brand palette — warm, earthy, editorial (not generic teal-tropical) */
@@ -11,8 +11,8 @@
   --color-sage: #7c8b6f;
   --color-gold: #c9a24b;
 
-  --font-display: 'PT Serif', Georgia, serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-display: "PT Serif", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
 
   --radius-card: 20px;
 
@@ -56,8 +56,8 @@
   background: rgba(248, 242, 230, 0.94);
   border: 2px solid #a8543a;
   box-shadow:
-          0 4px 12px rgba(35, 31, 27, 0.2),
-          0 0 0 4px rgba(168, 84, 58, 0.12);
+    0 4px 12px rgba(35, 31, 27, 0.2),
+    0 0 0 4px rgba(168, 84, 58, 0.12);
 }
 
 .calliste-marker-dot {
@@ -96,50 +96,4 @@
 .leaflet-control-zoom a:hover {
   background: #eee4d2 !important;
   color: #a8543a !important;
-}
-
-.language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: 30px;
-}
-
-.language-switcher button {
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
-  font-size: 14px;
-  cursor: pointer;
-  color: #777;
-  transition: color 0.2s ease;
-}
-
-.language-switcher button:hover {
-  color: #000;
-}
-
-.language-switcher button.active {
-  color: #000;
-  font-weight: 600;
-}
-
-.language-switcher span {
-  color: #aaa;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-  margin-left: auto;
-}
-
-.language-switcher {
-  margin-left: 30px;
 }
