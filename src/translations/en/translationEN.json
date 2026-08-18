@@ -1,0 +1,417 @@
+{
+  "brand": {
+    "name": "Calliste Travel",
+    "tagline": "Where the maps end",
+    "description": "Calliste Travel is a travel agency dedicated to discovering hidden, lesser-known corners of the world — places you will not find in ordinary tourist guides. Through carefully selected destinations and authentic experiences, we take travelers where the maps end and the real stories begin.",
+    "shortBlurb": "A travel agency for those looking for more than a destination — they are looking for a story."
+  },
+  "navbar": {
+    "home": "Home",
+    "destinations": "Destinations",
+    "journal": "Journal",
+    "about": "About us",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "hero": {
+      "imageAlt": "A secluded bay with crystal-clear water, viewed from above",
+      "eyebrow": "Calliste Travel",
+      "titleLine1": "Where the",
+      "titleLine2": "maps end.",
+      "description": "We discover hidden, lesser-known corners of the world and guide you towards them — with local stories, carefully selected destinations and moments that stay with you long after the journey.",
+      "explore": "Explore destinations",
+      "learnMore": "Learn more",
+      "scroll": "Scroll to explore"
+    },
+    "featuredDestinations": {
+      "eyebrow": "Featured destinations",
+      "title": "Places worth discovering",
+      "description": "Some places look beautiful in photographs. Others have something you have to experience for yourself.",
+      "discoverMore": "Discover more",
+      "viewAll": "View all destinations"
+    },
+    "journalTeaser": {
+      "eyebrow": "Journal",
+      "title": "Where the real stories begin",
+      "description": "Short notes from the road — the people, places and moments that cannot be captured in a brochure.",
+      "viewJournal": "View the journal",
+      "readMore": "Read more"
+    },
+    "whyCalliste": {
+      "eyebrow": "Why Calliste?",
+      "title": "We do not just want to show you where to go.",
+      "description": "We want to give you a reason to go.",
+      "reasons": [
+        {
+          "title": "Curiosity",
+          "description": "We are always looking for what lies beyond the next bend, away from the obvious tourist routes."
+        },
+        {
+          "title": "Places with character",
+          "description": "We do not choose destinations simply because they look beautiful. We look for places with a story and a soul."
+        },
+        {
+          "title": "Local experience",
+          "description": "We believe the best memories come from the people, food and small details that make a place special."
+        },
+        {
+          "title": "Stories that stay",
+          "description": "The journey ends when you return home. The story you created does not have to."
+        }
+      ]
+    }
+  },
+  "destinationsPage": {
+    "imageAlt": "A landscape calling to be explored",
+    "eyebrow": "Destinations",
+    "titleLine1": "Places you do not",
+    "titleLine2": "come across every day.",
+    "description": "We choose places with character — quiet bays, old towns, mountain trails and coastlines worth discovering at your own pace.",
+    "featuredEyebrow": "Featured places",
+    "featuredTitle": "Follow your curiosity.",
+    "filters": {
+      "region": "Region",
+      "type": "Type",
+      "all": "All",
+      "europe": "Europe",
+      "asia": "Asia",
+      "africa": "Africa",
+      "nature": "Nature",
+      "culture": "Culture",
+      "adventure": "Adventure",
+      "clear": "Clear filters",
+      "noResultsTitle": "No destinations match these filters.",
+      "noResultsDescription": "Try a different combination of region and type."
+    },
+    "map": {
+      "eyebrow": "Our map",
+      "title": "See where the journey begins.",
+      "popupLabel": "Calliste destination",
+      "discover": "Discover destination"
+    }
+  },
+  "destinationPage": {
+    "backToAll": "All destinations",
+    "aboutPlace": "About the place",
+    "title": "More than a point on a map.",
+    "highlights": "What not to miss",
+    "locationDescription": "Discover the place at your own pace. The most beautiful details are often found away from the main route.",
+    "openMaps": "Open in Google Maps",
+    "gallery": "Gallery",
+    "galleryTitle": "See the place.",
+    "photoAlt": "photo",
+    "location": "Location",
+    "locationTitle": "Where is {{destination}}?",
+    "continueExploring": "Continue exploring",
+    "nextPlace": "The next place may be just one click away.",
+    "allDestinations": "All destinations"
+  },
+  "about": {
+    "eyebrow": "About Calliste",
+    "titleLine1": "The journey begins",
+    "titleLine2": "where the map ends.",
+    "intro": "Calliste Travel was created for people who do not simply want to visit a place. They want to feel it.",
+    "storyEyebrow": "Our story",
+    "storyTitle": "We do not believe travel should be a checklist.",
+    "storyParagraphs": [
+      "There are places you visit, photograph and forget. And then there are places that stay in your mind long after you leave.",
+      "Calliste was created around the second kind. Around small bays, quiet streets, local stories and those moments that cannot be planned down to the last minute.",
+      "That is why we carefully choose the places we share. We are not simply looking for beautiful photographs. We are looking for character."
+    ],
+    "ideaEyebrow": "Our idea",
+    "ideaQuote": "\"The best place is not always the one everyone is already talking about.\"",
+    "ideaDescription": "Travel is personal. That is why the places we look for should be special enough for everyone to create their own story.",
+    "valuesEyebrow": "What we believe",
+    "valuesTitle": "Four things that guide Calliste.",
+    "values": [
+      {
+        "title": "Curiosity first",
+        "description": "We do not travel simply to arrive. We travel to discover what lies beyond the next bend."
+      },
+      {
+        "title": "Beyond the map",
+        "description": "We look for places that are not always on the first page of the tourist guide."
+      },
+      {
+        "title": "Respect for the place",
+        "description": "We believe good travel leaves memories, not a footprint. Local character always comes first."
+      },
+      {
+        "title": "Moments that stay",
+        "description": "The best journeys are not measured by the number of places you visit, but by the stories you bring home."
+      }
+    ],
+    "ctaEyebrow": "The next place",
+    "ctaTitle": "Maybe your next story is already on the map.",
+    "ctaDescription": "Explore the places we have chosen and find something worth discovering.",
+    "ctaButton": "Explore destinations"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "titleLine1": "Let's begin the",
+    "titleLine2": "next story.",
+    "intro": "Have a question, an idea, or simply want to talk about your next journey? Write to us. We would love to hear from you.",
+    "writeUs": "Write to us",
+    "writeUsTitle": "We would love to hear from you.",
+    "writeUsDescription": "For now, the easiest way to reach us is directly by email or phone. Our contact form will be available soon.",
+    "email": "Email",
+    "phone": "Phone",
+    "followUs": "Follow us",
+    "followTitle": "The journey does not end when you return home.",
+    "followDescription": "Follow our new destinations, stories and inspiration from the road."
+  },
+  "journal": {
+    "eyebrow": "Journal",
+    "titleLine1": "Stories from",
+    "titleLine2": "the road.",
+    "intro": "Places, people and moments worth remembering. Notes from a world that exists beyond the tourist routes.",
+    "readMore": "Read more",
+    "nextStoryEyebrow": "The next story",
+    "nextStoryTitle": "Do not just read about the places. Discover them.",
+    "explore": "Explore destinations"
+  },
+  "journalEntry": {
+    "back": "Back to journal",
+    "continueEyebrow": "Continue exploring",
+    "continueTitle": "The next story may be just one click away.",
+    "backToJournal": "Back to journal"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "This page has gone off the map",
+    "description": "The page you were looking for does not exist or has been moved. Go back to the home page and continue exploring.",
+    "backHome": "Back home"
+  },
+  "footer": {
+    "description": "We discover places with character, far from the obvious tourist routes. The journey begins where the maps end.",
+    "navigation": "Navigation",
+    "followUs": "Follow us",
+    "tagline": "Travel beyond the map.",
+    "copyright": "© {{year}} Calliste Travel."
+  },
+  "cookieBanner": {
+    "message": "We use cookies to improve your experience on our website. By clicking “Accept”, you agree to their use.",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "siteData": {
+    "valuePillars": [
+      {
+        "title": "Local guides",
+        "description": "We travel with people who know the terrain better than any map — guides who open the doors to the real story of every place."
+      },
+      {
+        "title": "Curated destinations",
+        "description": "Every destination is hand-picked, far from crowded tourist paths, so you can experience places few people have seen."
+      },
+      {
+        "title": "Authentic experiences",
+        "description": "We do not sell package tours. We create experiences that connect you with the people, culture and stories of a place."
+      },
+      {
+        "title": "Responsible travel",
+        "description": "We travel with respect for local communities and nature, leaving an impact that lasts longer than photographs."
+      }
+    ]
+  },
+  "destinations": {
+    "farerski-ostrovi": {
+      "title": "Faroe Islands",
+      "country": "Denmark",
+      "region": "Europe",
+      "type": "Nature",
+      "excerpt": "Steep cliffs, green valleys and small villages between the northern sea and the sky.",
+      "description": "An archipelago where the weather changes within minutes and roads lead to places that feel like the end of the world. The Faroe Islands are for those who seek silence, raw nature and a feeling of true discovery.",
+      "tags": [
+        "Nature",
+        "North",
+        "Hiking"
+      ],
+      "highlights": [
+        "Hiking among steep sea cliffs",
+        "Small villages and local communities",
+        "Changing northern weather and landscapes"
+      ]
+    },
+    "azori": {
+      "title": "Azores",
+      "country": "Portugal",
+      "region": "Europe",
+      "type": "Nature",
+      "excerpt": "Volcanic islands, green craters and an ocean that seems endless.",
+      "description": "Far out in the Atlantic lies an archipelago where volcanic landscapes meet lush vegetation and small coastal settlements. The Azores are a place for slow exploration, long walks and days without a strict plan.",
+      "tags": [
+        "Ocean",
+        "Volcanoes",
+        "Nature"
+      ],
+      "highlights": [
+        "Volcanic lakes and craters",
+        "Natural thermal springs",
+        "Hiking trails above the Atlantic"
+      ]
+    },
+    "svaneti": {
+      "title": "Svaneti",
+      "country": "Georgia",
+      "region": "Europe",
+      "type": "Culture",
+      "excerpt": "Stone towers, high mountains and villages where old stories still live.",
+      "description": "In the high mountains of northern Georgia, Svaneti has preserved its medieval towers, traditions and way of life. Here, travel is not only about seeing landscapes, but about getting to know a place with its own rhythm and identity.",
+      "tags": [
+        "Mountains",
+        "Culture",
+        "History"
+      ],
+      "highlights": [
+        "Medieval Svan towers",
+        "Mountain villages and local architecture",
+        "Traditional Svan cuisine"
+      ]
+    },
+    "flores": {
+      "title": "Flores",
+      "country": "Indonesia",
+      "region": "Asia",
+      "type": "Adventure",
+      "excerpt": "Volcanic lakes, quiet coastlines and island roads that lead into the unknown.",
+      "description": "Flores is an island for travelers who like to move slowly and stop wherever the road looks most interesting. From the mountain landscapes to the small coastal villages, every part of the island has a different character.",
+      "tags": [
+        "Island",
+        "Adventure",
+        "Nature"
+      ],
+      "highlights": [
+        "Kelimutu volcanic lakes",
+        "Small coastal villages",
+        "Travel through mountain landscapes"
+      ]
+    },
+    "raja-ampat": {
+      "title": "Raja Ampat",
+      "country": "Indonesia",
+      "region": "Asia",
+      "type": "Nature",
+      "excerpt": "Rocky islets, turquoise water and one of the planet's most vivid marine worlds.",
+      "description": "Raja Ampat is an archipelago made up of hundreds of islands and small limestone formations. Instead of large tourist centers, the sea, local communities and the feeling of arriving somewhere not yet fully discovered take center stage.",
+      "tags": [
+        "Ocean",
+        "Islands",
+        "Diving"
+      ],
+      "highlights": [
+        "Coral reefs and rich marine life",
+        "Small uninhabited islands",
+        "Local coastal communities"
+      ]
+    },
+    "jakushima": {
+      "title": "Yakushima",
+      "country": "Japan",
+      "region": "Asia",
+      "type": "Nature",
+      "excerpt": "Ancient forests, moss and mountain trails beneath rain that never seems to hurry.",
+      "description": "Yakushima is an island known for its ancient cedar forests and unusual, almost mystical landscape. The humid air, dense vegetation and old trees create the feeling that you have stepped into another world.",
+      "tags": [
+        "Forest",
+        "Mountains",
+        "Japan"
+      ],
+      "highlights": [
+        "Ancient cedar forests",
+        "Mountain hiking trails",
+        "Natural waterfalls and rivers"
+      ]
+    },
+    "sao-tome": {
+      "title": "São Tomé",
+      "country": "São Tomé and Príncipe",
+      "region": "Africa",
+      "type": "Culture",
+      "excerpt": "Tropical forests, old plantations and island life far from the usual tourist routes.",
+      "description": "The small island of São Tomé blends Portuguese heritage, African culture and tropical nature. Old plantations, green mountains and peaceful coastal settlements create a place best discovered without rushing.",
+      "tags": [
+        "Island",
+        "Culture",
+        "Tropics"
+      ],
+      "highlights": [
+        "Historic plantations and roças",
+        "Tropical forests and mountains",
+        "Local island cuisine"
+      ]
+    },
+    "karaburun": {
+      "title": "Karaburun",
+      "country": "Albania",
+      "region": "Europe",
+      "type": "Adventure",
+      "excerpt": "A wild peninsula where the mountains descend directly into the Ionian Sea.",
+      "description": "The Karaburun Peninsula is one of those parts of the Albanian coast where nature still has the final word. Rocky bays, clear water and trails above the sea make it ideal for travelers who want to explore the coast beyond the main resorts.",
+      "tags": [
+        "Sea",
+        "Hiking",
+        "Wilderness"
+      ],
+      "highlights": [
+        "Hidden bays and beaches",
+        "Hiking trails above the Ionian Sea",
+        "Karaburun-Sazan Marine Park"
+      ]
+    },
+    "madeira": {
+      "title": "Madeira",
+      "country": "Portugal",
+      "region": "Europe",
+      "type": "Adventure",
+      "excerpt": "Green mountains, clouds beneath your feet and trails that disappear into the Atlantic.",
+      "description": "Madeira is an island for those who want to spend the day outdoors and finish the evening beside the ocean. Steep mountains, levadas and old paths create endless opportunities for exploration.",
+      "tags": [
+        "Island",
+        "Mountains",
+        "Adventure"
+      ],
+      "highlights": [
+        "Hiking beside the levadas",
+        "Mountain trails above the clouds",
+        "Coastal villages and natural pools"
+      ]
+    }
+  },
+  "journalEntries": {
+    "utro-so-ribarite": {
+      "category": "Journal",
+      "title": "Morning with the fishermen in the south",
+      "excerpt": "Before sunrise we set out in a small wooden boat, with no plan, just a compass and curiosity.",
+      "content": [
+        "Before sunrise, while the shore was still in darkness, we set out in a small wooden boat. We had no exact route and no plan for the day. Just a compass, a few coffees and curiosity.",
+        "The fishermen we went with knew the sea without looking at a map. They knew where the water changed, where the morning was calmest and where it was worth stopping even if there was nothing special to photograph.",
+        "The most interesting part of the morning was not the place we reached. It was the feeling that for a few hours we stopped checking the time and simply began following the rhythm of the sea."
+      ]
+    },
+    "seloto-bez-ime": {
+      "category": "Story",
+      "title": "The village with no name on the map",
+      "excerpt": "Three days without internet, yet we felt more connected than we expected.",
+      "content": [
+        "There was nothing special on the map. Just a small path that ended between the hills. Following it, we reached a few houses, an old stone fountain and a square small enough for all the residents to know one another.",
+        "The first thing we noticed was that the phone had no signal. The second was that nobody seemed to miss it.",
+        "We spent three days without internet. Instead of notifications, we had conversations with the villagers, homemade food and long evenings beneath the open sky. Sometimes the place that is least visible on the map is exactly the one you will remember most."
+      ]
+    },
+    "kako-da-patuvate-bavno": {
+      "category": "Tips",
+      "title": "How to travel slowly instead of quickly",
+      "excerpt": "Five lessons learned from local people about what it really means to experience a place.",
+      "content": [
+        "Slow travel does not mean doing less. It means leaving enough space for something unplanned to happen.",
+        "The first lesson is not to fill every hour. Leave a morning without a plan. Walk without a specific destination. Sit in a local café and watch the day begin.",
+        "The second is to talk to local people. They often know about places, trails and stories you will never find in a tourist guide.",
+        "The third is to stay longer in one place. Instead of three cities in three days, try one city for three days.",
+        "And perhaps the most important lesson: do not try to see everything. Good travel is not a list of places you visited, but the feeling you return home with."
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   /* Brand palette — warm, earthy, editorial (not generic teal-tropical) */
@@ -11,8 +11,8 @@
   --color-sage: #7c8b6f;
   --color-gold: #c9a24b;
 
-  --font-display: 'PT Serif', Georgia, serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-display: "PT Serif", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
 
   --radius-card: 20px;
 
@@ -56,8 +56,8 @@
   background: rgba(248, 242, 230, 0.94);
   border: 2px solid #a8543a;
   box-shadow:
-          0 4px 12px rgba(35, 31, 27, 0.2),
-          0 0 0 4px rgba(168, 84, 58, 0.12);
+    0 4px 12px rgba(35, 31, 27, 0.2),
+    0 0 0 4px rgba(168, 84, 58, 0.12);
 }
 
 .calliste-marker-dot {
