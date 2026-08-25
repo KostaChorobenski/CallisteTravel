@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Container } from '../components/ui/Container'
+import { Seo } from '../components/seo/Seo'
 import { DestinationsMap } from '../components/destinations/DestinationsMap'
 import { DestinationCard } from '../components/destinations/DestinationCard'
 import {
@@ -33,6 +35,7 @@ const types: TypeFilter[] = [
 ]
 
 export function Destinations() {
+  const { t } = useTranslation()
   const [region, setRegion] = useState<RegionFilter>('all')
   const [type, setType] = useState<TypeFilter>('all')
 
@@ -55,6 +58,11 @@ export function Destinations() {
 
   return (
       <main>
+        <Seo
+          title={t('seo.destinations.title')}
+          description={t('seo.destinations.description')}
+          keywords={t('seo.destinations.keywords')}
+        />
         {/* Hero */}
         <section className="relative isolate min-h-[55vh] overflow-hidden">
           <div className="absolute inset-0 -z-10">

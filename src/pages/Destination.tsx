@@ -5,12 +5,15 @@ import {
   MapPin,
 } from '@phosphor-icons/react'
 import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Container } from '../components/ui/Container'
+import { Seo } from '../components/seo/Seo'
 import { DestinationsMap } from '../components/destinations/DestinationsMap'
 import { destinationById } from '../data/destinations'
 import { NotFound } from './NotFound'
 
 export function Destination() {
+  const { t } = useTranslation()
   const { id } = useParams()
   const destination = id ? destinationById(id) : undefined
 
@@ -20,6 +23,12 @@ export function Destination() {
 
   return (
     <main>
+      <Seo
+        title={t('seo.destination.title', { name: destination.title })}
+        description={t('seo.destination.description', {
+          name: destination.title,
+        })}
+      />
       {/* Hero */}
       <section className="relative isolate min-h-[65vh] overflow-hidden">
         <div className="absolute inset-0 -z-10">

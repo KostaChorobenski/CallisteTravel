@@ -38,6 +38,11 @@
     @apply font-display text-ink;
     line-height: 1.15;
   }
+
+  :focus-visible {
+    outline: 2px solid var(--color-rust);
+    outline-offset: 2px;
+  }
 }
 /* Calliste map */
 

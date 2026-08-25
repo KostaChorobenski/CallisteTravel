@@ -27,6 +27,7 @@ type ButtonAsButton = BaseProps & {
   to?: never
   href?: never
   type?: 'button' | 'submit'
+  disabled?: boolean
 }
 
 type ButtonProps = ButtonAsLink | ButtonAsAnchor | ButtonAsButton
@@ -42,7 +43,7 @@ const variantClasses: Record<ButtonVariant, string> = {
 }
 
 const baseClasses =
-  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-body font-semibold text-sm transition-all duration-200 ease-out cursor-pointer'
+  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-body font-semibold text-sm transition-all duration-200 ease-out cursor-pointer disabled:cursor-not-allowed disabled:opacity-60'
 
 export function Button(props: ButtonProps) {
   const classes = clsx(baseClasses, variantClasses[props.variant ?? 'primary'], props.className)
@@ -63,9 +64,9 @@ export function Button(props: ButtonProps) {
     )
   }
 
-  const { onClick, type = 'button' } = props as ButtonAsButton
+  const { onClick, type = 'button', disabled } = props as ButtonAsButton
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {props.children}
     </button>
   )

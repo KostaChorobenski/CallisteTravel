@@ -1,12 +1,20 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Container } from '../components/ui/Container'
+import { Seo } from '../components/seo/Seo'
 import { journalEntries } from '../data/journal'
 
 export function Journal() {
+  const { t } = useTranslation()
+
   return (
       <main>
+        <Seo
+          title={t('seo.journal.title')}
+          description={t('seo.journal.description')}
+        />
         <section className="border-b border-ink/10 bg-cream-soft">
           <Container className="py-24 md:py-32">
             <motion.div

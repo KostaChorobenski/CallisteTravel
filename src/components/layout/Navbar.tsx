@@ -5,6 +5,7 @@ import { clsx } from "clsx";
 import { Wordmark } from "../../assets/logo/Wordmark";
 import GoogleTranslate from "next-google-translate-widget";
 import "next-google-translate-widget/styles";
+import i18n from "../../i18n";
 
 const links = [
   { to: "/", label: "Почетна" },
@@ -18,11 +19,13 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const changeLanguage = (language: "mk" | "en") => {
+    void i18n.changeLanguage(language);
+    document.documentElement.lang = language;
+
     const select = document.querySelector(
       ".goog-te-combo",
     ) as HTMLSelectElement | null;
     if (!select) {
-      console.warn("Google Translate not ready yet");
       return;
     }
     select.value = language;
@@ -57,6 +60,7 @@ export function Navbar() {
 
           <div className="notranslate hidden items-center gap-2 text-sm font-semibold md:flex">
             <button
+              type="button"
               onClick={() => changeLanguage("mk")}
               className="text-ink-soft transition-colors hover:text-ink"
             >
@@ -64,6 +68,7 @@ export function Navbar() {
             </button>
             <span className="text-ink-soft">|</span>
             <button
+              type="button"
               onClick={() => changeLanguage("en")}
               className="text-ink-soft transition-colors hover:text-ink"
             >
@@ -107,6 +112,7 @@ export function Navbar() {
 
             <div className="notranslate flex items-center gap-2 px-4 py-3">
               <button
+                type="button"
                 onClick={() => {
                   changeLanguage("mk");
                   setIsOpen(false);
@@ -117,6 +123,7 @@ export function Navbar() {
               </button>
               <span className="text-ink-soft">|</span>
               <button
+                type="button"
                 onClick={() => {
                   changeLanguage("en");
                   setIsOpen(false);

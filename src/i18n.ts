@@ -54,6 +54,10 @@ i18n
     debug: false,
     interpolation: {
       escapeValue: false
+    },
+    detection: {
+      order: ['localStorage'],
+      caches: ['localStorage']
     }
   })
 
