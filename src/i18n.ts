@@ -29,36 +29,29 @@
 
 // export default i18n;
 
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
-import translationMK from './translations/mk/translationMK.json'
-import translationEN from './translations/en/translationEN.json'
+import translationMK from "./translations/mk/translationMK.json";
+import translationEN from "./translations/en/translationEN.json";
 
 const resources = {
   mk: {
-    translation: translationMK
+    translation: translationMK,
   },
   en: {
-    translation: translationEN
-  }
-} as const
+    translation: translationEN,
+  },
+} as const;
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLng: 'mk',
-    debug: false,
-    interpolation: {
-      escapeValue: false
-    },
-    detection: {
-      order: ['localStorage'],
-      caches: ['localStorage']
-    }
-  })
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "mk",
+  fallbackLng: "mk",
+  debug: false,
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
-export default i18n
+export default i18n;
