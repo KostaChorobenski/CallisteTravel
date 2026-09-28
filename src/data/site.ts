@@ -23,6 +23,7 @@ export const navLinks: NavLink[] = [
 export const contact = {
   email: 'hello@callistetravel.mk',
   phone: '+389 2 123 4567',
+  mapsQuery: 'Macedonia Square, Skopje, North Macedonia',
 } as const
 
 export const social = [

@@ -155,12 +155,78 @@
     "intro": "Have a question, an idea, or simply want to talk about your next journey? Write to us. We would love to hear from you.",
     "writeUs": "Write to us",
     "writeUsTitle": "We would love to hear from you.",
-    "writeUsDescription": "For now, the easiest way to reach us is directly by email or phone. Our contact form will be available soon.",
+    "writeUsDescription": "Send us a message with the form, or reach us directly by email, phone, or at our office in Skopje.",
+    "location": "Location",
+    "locationValue": "Macedonia Square 1, 1000 Skopje, North Macedonia",
     "email": "Email",
     "phone": "Phone",
     "followUs": "Follow us",
     "followTitle": "The journey does not end when you return home.",
-    "followDescription": "Follow our new destinations, stories and inspiration from the road."
+    "followDescription": "Follow our new destinations, stories and inspiration from the road.",
+    "mapEyebrow": "Find us",
+    "mapHeading": "Our starting point in Skopje.",
+    "mapDescription": "Visit us in the city centre, or use the map to plan your way to our office.",
+    "mapTitle": "Map showing the Calliste Travel office in Skopje",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your next journey...",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully!",
+      "errors": {
+        "nameRequired": "Please enter your name.",
+        "nameMin": "Name must be at least 2 characters.",
+        "emailRequired": "Please enter your email address.",
+        "emailInvalid": "Please enter a valid email address.",
+        "subjectRequired": "Please enter a subject.",
+        "subjectMin": "Subject must be at least 3 characters.",
+        "messageRequired": "Please enter a message.",
+        "messageMin": "Message must be at least 10 characters."
+      }
+    }
+  },
+  "seo": {
+    "home": {
+      "title": "Calliste Travel — Where the maps end",
+      "description": "Calliste Travel is a travel agency dedicated to discovering hidden corners of the world. The journey begins where the maps end.",
+      "keywords": "Calliste Travel, hidden destinations, slow travel, travel agency"
+    },
+    "destinations": {
+      "title": "Destinations | Calliste Travel",
+      "description": "Explore carefully chosen destinations with character — quiet bays, mountain trails and places beyond the usual tourist routes.",
+      "keywords": "destinations, travel, Faroe Islands, Azores, Svaneti, Raja Ampat"
+    },
+    "destination": {
+      "title": "{{name}} | Calliste Travel",
+      "description": "Discover {{name}} with Calliste Travel — a place with character, away from the obvious tourist routes."
+    },
+    "journal": {
+      "title": "Journal | Calliste Travel",
+      "description": "Stories from the road — places, people and moments worth remembering beyond the tourist routes."
+    },
+    "journalEntry": {
+      "title": "{{name}} | Calliste Travel",
+      "description": "{{excerpt}}"
+    },
+    "about": {
+      "title": "About us | Calliste Travel",
+      "description": "Calliste Travel was created for people who do not simply want to visit a place. They want to feel it."
+    },
+    "contact": {
+      "title": "Contact | Calliste Travel",
+      "description": "Get in touch with Calliste Travel in Skopje. Send a message, call us, or visit our office and start planning your next journey.",
+      "keywords": "contact, Calliste Travel, Skopje, travel agency, email, phone"
+    },
+    "notFound": {
+      "title": "Page not found | Calliste Travel",
+      "description": "This page has gone off the map. Return home and continue exploring Calliste Travel."
+    }
   },
   "journal": {
     "eyebrow": "Journal",

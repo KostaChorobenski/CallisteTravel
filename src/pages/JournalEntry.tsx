@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react'
 import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Container } from '../components/ui/Container'
+import { Seo } from '../components/seo/Seo'
 import { journalEntryById } from '../data/journal'
 import { NotFound } from './NotFound'
 
 export function JournalEntry() {
+    const { t } = useTranslation()
     const { id } = useParams()
     const entry = id ? journalEntryById(id) : undefined
 
@@ -15,6 +18,13 @@ export function JournalEntry() {
 
     return (
         <main>
+            <Seo
+                title={t('seo.journalEntry.title', { name: entry.title })}
+                description={t('seo.journalEntry.description', {
+                    excerpt: entry.excerpt,
+                })}
+                type="article"
+            />
             <section className="border-b border-ink/10 bg-cream-soft">
                 <Container className="py-20 md:py-28">
                     <motion.div
