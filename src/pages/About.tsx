@@ -1,3 +1,5 @@
+import { PageHero } from '../components/ui/PageHero'
+import pageHeroImage from '../assets/images/destinations/madeira/2.webp'
 import { motion } from 'framer-motion'
 import {
   Compass,
@@ -47,7 +49,7 @@ export function About() {
         title={t('seo.about.title')}
         description={t('seo.about.description')}
       />
-      <section className="border-b border-ink/10 bg-cream-soft">
+      <PageHero image={pageHeroImage}>
         <Container className="py-20 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -55,25 +57,25 @@ export function About() {
             transition={{ duration: 0.7 }}
             className="max-w-4xl"
           >
-            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-cream/75">
               За Calliste
             </span>
 
-            <h1 className="mt-5 text-5xl leading-[1.05] md:text-7xl">
+            <h1 className="text-cream mt-5 text-5xl leading-[1.05] md:text-7xl">
               Патувањето започнува
-              <span className="text-rust">
+              <span className="text-cream/75">
                 {' '}
                 таму каде што мапата завршува.
               </span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/80 md:text-xl">
               Calliste Travel е агенција создадена за луѓе кои не сакаат само да посетат
               место. Сакаат да го почувствуваат.
             </p>
           </motion.div>
         </Container>
-      </section>
+      </PageHero>
 
       <section className="py-20 md:py-32">
         <Container>

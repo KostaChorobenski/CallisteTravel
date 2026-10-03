@@ -1,3 +1,5 @@
+import { PageHero } from '../components/ui/PageHero'
+import pageHeroImage from '../assets/images/sunset-stilts.jpg'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { Link } from 'react-router-dom'
@@ -15,7 +17,7 @@ export function Journal() {
           title={t('seo.journal.title')}
           description={t('seo.journal.description')}
         />
-        <section className="border-b border-ink/10 bg-cream-soft">
+        <PageHero image={pageHeroImage}>
           <Container className="py-24 md:py-32">
             <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -23,22 +25,22 @@ export function Journal() {
                 transition={{ duration: 0.7 }}
                 className="max-w-4xl"
             >
-            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-cream/75">
               Дневник
             </span>
 
-              <h1 className="mt-5 text-5xl leading-[1.05] md:text-7xl">
+              <h1 className="text-cream mt-5 text-5xl leading-[1.05] md:text-7xl">
                 Приказни од
-                <span className="text-rust"> патот.</span>
+                <span className="text-cream/75"> патот.</span>
               </h1>
 
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/80 md:text-xl">
                 Места, луѓе и моменти што заслужуваат да бидат запаметени.
                 Записи од светот што постои подалеку од туристичките рути.
               </p>
             </motion.div>
           </Container>
-        </section>
+        </PageHero>
 
         <section className="py-20 md:py-28">
           <Container>

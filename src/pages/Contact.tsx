@@ -1,3 +1,5 @@
+import { PageHero } from '../components/ui/PageHero'
+import pageHeroImage from '../assets/images/shoreline-palms.jpg'
 import { motion } from 'framer-motion'
 import {
   EnvelopeSimple,
@@ -30,7 +32,7 @@ export function Contact() {
         keywords={t('seo.contact.keywords')}
       />
 
-      <section className="border-b border-ink/10 bg-cream-soft">
+      <PageHero image={pageHeroImage}>
         <Container className="py-16 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -38,21 +40,21 @@ export function Contact() {
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-cream/75">
               {t('contact.eyebrow')}
             </span>
 
-            <h1 className="mt-5 text-4xl leading-[1.08] sm:text-5xl md:text-7xl">
+            <h1 className="text-cream mt-5 text-4xl leading-[1.08] sm:text-5xl md:text-7xl">
               {t('contact.titleLine1')}
-              <span className="text-rust"> {t('contact.titleLine2')}</span>
+              <span className="text-cream/75"> {t('contact.titleLine2')}</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg md:text-xl">
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-cream/80 sm:text-lg md:text-xl">
               {t('contact.intro')}
             </p>
           </motion.div>
         </Container>
-      </section>
+      </PageHero>
 
       <section className="py-16 md:py-28">
         <Container>
