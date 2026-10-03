@@ -125,3 +125,19 @@ Both actions preserve the current route, query string, and URL fragment. Reloadi
 Google Translate is an external service. English may take a moment to appear and may be unavailable if its scripts or requests are blocked or fail. The active control indicates the selected language, not a guarantee that the service has finished translating. Machine translation quality and coverage vary; content marked `notranslate` is intentionally excluded. Macedonian reset does not depend on the translation service being available.
 
 The homepage includes a three-step travel planning section. Contact includes an accessible FAQ using native disclosure controls. Each destination shows seasonal information with a source link, suggested trip duration, and travel style. Durations are editorial suggestions for the presentation.
+
+## Local verification (2026-10-03)
+
+- Production build, TypeScript, lint, and whitespace checks passed.
+- All 17 content routes opened directly on desktop and at a 375px mobile width; no horizontal overflow was detected. Images checked on desktop had no failed loads.
+- Destination filters, empty results, and reset passed; all nine destinations returned after reset.
+- Map tiles and all nine markers loaded; a marker popup navigated to its destination. Contact map embed was present.
+- Destination inquiry navigation scrolled to the form and prefilled the subject for Madeira.
+- Required fields, invalid email, short messages, successful simulated submission, and field reset passed.
+- FAQ disclosure, working hours, mobile navigation, and nested-route refresh passed.
+- Accepted and rejected cookie choices persisted after refresh.
+- Missing destination, missing article, and unknown route rendered 404 with noindex metadata.
+- English translation, translated form interaction, FAQ, and reset to Macedonian worked. One later Google Translate script request failed, so translation availability remains dependent on the external service.
+- Removed duplicate static/runtime SEO tags; production routes now have one description tag.
+
+FCSE deployment behavior remains unverified without the deployed URL. Local preview route fallback does not prove hosting configuration.
