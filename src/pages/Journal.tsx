@@ -95,7 +95,7 @@ export function Journal() {
               </span>
 
                 <h2 className="mt-3 text-3xl md:text-4xl">
-                  Не само читајте за местата. Откријте ги.
+                  Не читајте само за местата. Откријте ги.
                 </h2>
               </div>
 
