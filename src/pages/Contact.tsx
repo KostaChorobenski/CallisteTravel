@@ -1,3 +1,4 @@
+import { TravelFaq } from '../components/contact/TravelFaq'
 import { PageHero } from '../components/ui/PageHero'
 import pageHeroImage from '../assets/images/shoreline-palms.jpg'
 import { motion } from 'framer-motion'
@@ -234,6 +235,7 @@ export function Contact() {
           </motion.div>
         </Container>
       </section>
+      <TravelFaq />
     </>
   )
 }

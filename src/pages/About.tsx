@@ -1,3 +1,4 @@
+import { TeamSection } from '../components/ui/TeamSection'
 import { PageHero } from '../components/ui/PageHero'
 import pageHeroImage from '../assets/images/destinations/madeira/2.webp'
 import { motion } from 'framer-motion'
@@ -142,6 +143,8 @@ export function About() {
           </div>
         </Container>
       </section>
+
+      <TeamSection />
 
       <section className="bg-cream-soft py-20 md:py-28">
         <Container>

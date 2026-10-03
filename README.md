@@ -19,7 +19,7 @@ The project is a frontend application with locally defined destination and journ
 
 The site includes agency information, destination services and details, contact information and a validation form, journal articles, language controls, and a cookie preference banner. Before submission:
 
-- Add a team/employees section to About with approved names, roles, and descriptions. The current page only describes the agency and its values.
+- About now includes the four team members, presented in agency roles for the course website.
 - Confirm the displayed email, phone, and office address; the current details are demonstration content. The current implementation intentionally simulates sending for the course presentation.
 - Supply actual social profile URLs in `src/data/site.ts` if available.
 - Verify English translation and navigation on the deployed site; translation depends on Google's external service.
@@ -123,3 +123,5 @@ The custom `MK | EN` controls sit at the right of the desktop Navbar and at the 
 Both actions preserve the current route, query string, and URL fragment. Reloading clears unsaved in-memory state, such as form input. Google's default dropdown is hidden; visitors use only the custom controls.
 
 Google Translate is an external service. English may take a moment to appear and may be unavailable if its scripts or requests are blocked or fail. The active control indicates the selected language, not a guarantee that the service has finished translating. Machine translation quality and coverage vary; content marked `notranslate` is intentionally excluded. Macedonian reset does not depend on the translation service being available.
+
+The homepage includes a three-step travel planning section. Contact includes an accessible FAQ using native disclosure controls. Each destination shows seasonal information with a source link, suggested trip duration, and travel style. Durations are editorial suggestions for the presentation.
