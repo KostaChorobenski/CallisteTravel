@@ -17,7 +17,7 @@ export function JournalEntry() {
     }
 
     return (
-        <main>
+        <div>
             <Seo
                 title={t('seo.journalEntry.title', { name: entry.title })}
                 description={t('seo.journalEntry.description', {
@@ -98,6 +98,6 @@ export function JournalEntry() {
                     </div>
                 </Container>
             </section>
-        </main>
+        </div>
     )
 }

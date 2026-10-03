@@ -42,7 +42,7 @@ export function About() {
   const { t } = useTranslation()
 
   return (
-    <main>
+    <div>
       <Seo
         title={t('seo.about.title')}
         description={t('seo.about.description')}
@@ -229,6 +229,6 @@ export function About() {
           </motion.div>
         </Container>
       </section>
-    </main>
+    </div>
   )
 }

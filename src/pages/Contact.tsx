@@ -179,7 +179,10 @@ export function Contact() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3">
-                  {social.map((item) => {
+                  {social.every((item) => item.href === '#') ? (
+                    <p className="text-sm opacity-65">Социјалните профили наскоро ќе бидат достапни.</p>
+                  ) : null}
+                  {social.filter((item) => item.href !== '#').map((item) => {
                     const Icon =
                       socialIcons[item.label as keyof typeof socialIcons]
 

@@ -69,7 +69,10 @@ export function Footer() {
             </span>
 
             <div className="mt-5 flex flex-col items-start gap-3">
-              {social.map((item) => (
+                  {social.every((item) => item.href === '#') ? (
+                    <p className="text-sm opacity-65">Социјалните профили наскоро ќе бидат достапни.</p>
+                  ) : null}
+              {social.filter((item) => item.href !== '#').map((item) => (
                 <a
                   key={item.label}
                   href={item.href}

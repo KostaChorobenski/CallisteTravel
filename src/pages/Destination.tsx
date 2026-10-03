@@ -22,7 +22,7 @@ export function Destination() {
   }
 
   return (
-    <main>
+    <div>
       <Seo
         title={t('seo.destination.title', { name: destination.title })}
         description={t('seo.destination.description', {
@@ -273,6 +273,6 @@ className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-rust t
         </div>
     </Container>
 </section>
-</main>
+</div>
 )
 }

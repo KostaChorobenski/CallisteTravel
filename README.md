@@ -13,7 +13,20 @@ Calliste Travel is a responsive travel agency website focused on lesser-known de
 - Page metadata, animated sections, a cookie preference banner, and a not-found page.
 - Custom `MK | EN` language controls using the existing Google Translate integration.
 
-The project is a frontend application with locally defined destination and journal data. The contact form currently simulates submission; it does not send messages to a backend. Social links are placeholders. There is no booking or payment system.
+The project is a frontend application with locally defined destination and journal data. The contact form explicitly demonstrates client-side validation; it does not send messages to a backend and retains the entered data after validation. Unconfigured social profiles are shown as unavailable instead of linking to `#`. There is no booking or payment system.
+
+## Course requirement review
+
+The site includes agency information, destination services and details, contact information and a validation form, journal articles, language controls, and a cookie preference banner. Before submission:
+
+- Add a team/employees section to About with approved names, roles, and descriptions. The current page only describes the agency and its values.
+- Confirm the displayed email, phone, and office address; the current details are demonstration content. If actual message delivery is expected, connect the form to a backend and show success only after a successful response.
+- Supply actual social profile URLs in `src/data/site.ts` if available.
+- Verify English translation and navigation on the deployed site; translation depends on Google's external service.
+- Deploy to the FCSE system using the course's hosting instructions and verify direct visits and reloads on nested routes. Deployment cannot be confirmed from this checkout.
+- Register the team/topic, submit the website link on Courses, present the project, and complete the assigned peer reviews. These course activities happen outside this repository.
+
+The cookie banner stores its choice locally. It does not block external map or translation services, and its text states this explicitly. If consent is intended to control those services, conditional loading must be implemented.
 
 ## Technologies
 

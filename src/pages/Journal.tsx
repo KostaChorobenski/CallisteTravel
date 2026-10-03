@@ -10,7 +10,7 @@ export function Journal() {
   const { t } = useTranslation()
 
   return (
-      <main>
+      <div>
         <Seo
           title={t('seo.journal.title')}
           description={t('seo.journal.description')}
@@ -109,6 +109,6 @@ export function Journal() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
   )
 }

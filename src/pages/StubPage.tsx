@@ -15,7 +15,7 @@ export function StubPage({
   description,
 }: StubPageProps) {
   return (
-    <main>
+    <div>
       <section className="min-h-[65vh] border-b border-ink/10 bg-cream-soft">
         <Container className="flex min-h-[65vh] items-center py-20 md:py-28">
           <motion.div
@@ -46,6 +46,6 @@ export function StubPage({
           </motion.div>
         </Container>
       </section>
-    </main>
+    </div>
   )
 }
