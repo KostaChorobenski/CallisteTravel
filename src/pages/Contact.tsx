@@ -170,7 +170,7 @@ export function Contact() {
                   {t('contact.followUs')}
                 </span>
 
-                <h2 className="mt-5 font-display text-3xl leading-tight md:text-4xl">
+                <h2 className="mt-5 font-display text-3xl leading-tight text-cream md:text-4xl">
                   {t('contact.followTitle')}
                 </h2>
 
