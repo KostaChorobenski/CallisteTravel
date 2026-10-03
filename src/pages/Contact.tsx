@@ -179,10 +179,7 @@ export function Contact() {
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3">
-                  {social.every((item) => item.href === '#') ? (
-                    <p className="text-sm opacity-65">Социјалните профили наскоро ќе бидат достапни.</p>
-                  ) : null}
-                  {social.filter((item) => item.href !== '#').map((item) => {
+                  {social.map((item) => {
                     const Icon =
                       socialIcons[item.label as keyof typeof socialIcons]
 
@@ -190,6 +187,7 @@ export function Contact() {
                       <a
                         key={item.label}
                         href={item.href}
+                  onClick={(event) => { if (item.href === '#') event.preventDefault() }}
                         target="_blank"
                         rel="noreferrer"
                         className="group flex items-center justify-between rounded-full border border-cream/10 px-5 py-3.5 text-sm text-cream/75 transition-colors hover:border-rust hover:bg-rust hover:text-cream"

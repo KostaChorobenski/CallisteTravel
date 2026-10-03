@@ -13,14 +13,14 @@ Calliste Travel is a responsive travel agency website focused on lesser-known de
 - Page metadata, animated sections, a cookie preference banner, and a not-found page.
 - Custom `MK | EN` language controls using the existing Google Translate integration.
 
-The project is a frontend application with locally defined destination and journal data. The contact form explicitly demonstrates client-side validation; it does not send messages to a backend and retains the entered data after validation. Unconfigured social profiles are shown as unavailable instead of linking to `#`. There is no booking or payment system.
+The project is a frontend application with locally defined destination and journal data. The contact form validates input and simulates submission with a success message; it does not send messages to a backend. Social profiles are visual placeholders with no external destination. There is no booking or payment system.
 
 ## Course requirement review
 
 The site includes agency information, destination services and details, contact information and a validation form, journal articles, language controls, and a cookie preference banner. Before submission:
 
 - Add a team/employees section to About with approved names, roles, and descriptions. The current page only describes the agency and its values.
-- Confirm the displayed email, phone, and office address; the current details are demonstration content. If actual message delivery is expected, connect the form to a backend and show success only after a successful response.
+- Confirm the displayed email, phone, and office address; the current details are demonstration content. The current implementation intentionally simulates sending for the course presentation.
 - Supply actual social profile URLs in `src/data/site.ts` if available.
 - Verify English translation and navigation on the deployed site; translation depends on Google's external service.
 - Deploy to the FCSE system using the course's hosting instructions and verify direct visits and reloads on nested routes. Deployment cannot be confirmed from this checkout.

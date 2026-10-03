@@ -32,6 +32,7 @@ export function ContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues)
   const [touched, setTouched] = useState<TouchedFields>({})
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
 
   function validate(current: FormValues): FormErrors {
@@ -91,7 +92,15 @@ export function ContactForm() {
       return
     }
 
-    setSuccess(true)
+    setIsSubmitting(true)
+
+    window.setTimeout(() => {
+      setIsSubmitting(false)
+      setSuccess(true)
+      setValues(initialValues)
+      setTouched({})
+      setSubmitted(false)
+    }, 600)
   }
 
   function fieldDescribedBy(field: FieldName) {
@@ -100,9 +109,6 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-      <p className="text-sm leading-relaxed text-ink-soft">
-        {t('contact.form.demoNotice')}
-      </p>
       {success ? (
         <p
           role="status"
@@ -218,10 +224,11 @@ export function ContactForm() {
 
       <Button
         type="submit"
+        disabled={isSubmitting}
         className="w-full sm:w-auto"
       >
         <PaperPlaneTilt size={18} />
-        {t('contact.form.submit')}
+        {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
       </Button>
     </form>
   )
