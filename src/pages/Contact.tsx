@@ -1,4 +1,6 @@
 import { TravelFaq } from '../components/contact/TravelFaq'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { PageHero } from '../components/ui/PageHero'
 import pageHeroImage from '../assets/images/shoreline-palms.jpg'
 import { motion } from 'framer-motion'
@@ -7,6 +9,7 @@ import {
   InstagramLogo,
   FacebookLogo,
   Phone,
+  Clock,
   MapPin,
   ArrowUpRight,
 } from '@phosphor-icons/react'
@@ -24,6 +27,13 @@ const socialIcons = {
 
 export function Contact() {
   const { t } = useTranslation()
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash === '#contact-form') {
+      document.getElementById('contact-form')?.scrollIntoView({ behavior: 'instant' })
+    }
+  }, [hash])
 
   return (
     <>
@@ -57,7 +67,7 @@ export function Contact() {
         </Container>
       </PageHero>
 
-      <section className="py-16 md:py-28">
+      <section id="contact-form" className="scroll-mt-24 py-16 md:py-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <motion.div
@@ -167,6 +177,17 @@ export function Contact() {
                   className="shrink-0 text-ink/30 transition-colors group-hover:text-rust"
                 />
               </a>
+
+              <div className="flex items-start gap-4 rounded-card border border-ink/10 bg-cream-soft p-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-rust/10 text-rust">
+                  <Clock size={21} />
+                </span>
+                <div>
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-ink/40">Работно време</h2>
+                  <p className="mt-2 text-sm font-medium text-ink">Понеделник – петок: 09:00–17:00</p>
+                  <p className="mt-1 text-sm text-ink-soft">Сабота и недела: неработни денови</p>
+                </div>
+              </div>
 
               <div className="rounded-card bg-ink p-8 text-cream md:p-10">
                 <span className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-cream/50">

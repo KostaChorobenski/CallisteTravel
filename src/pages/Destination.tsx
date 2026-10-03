@@ -168,6 +168,14 @@ export function Destination() {
                 наоѓаат подалеку од главната рута.
               </p>
 
+              <Link
+                to={`/kontakt?destination=${encodeURIComponent(destination.id)}#contact-form`}
+                className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-rust px-5 py-3 text-sm font-semibold text-cream transition-colors hover:bg-rust-dark"
+              >
+                Прашај за ова патување
+                <ArrowUpRight size={18} />
+              </Link>
+
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${destination.latitude},${destination.longitude}`}
     target="_blank"
