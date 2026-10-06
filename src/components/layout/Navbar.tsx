@@ -90,7 +90,7 @@ export function Navbar() {
               type="button"
               onClick={() => changeLanguage("mk")}
               aria-pressed={language === "mk"}
-              className={clsx("transition-colors hover:text-ink", language === "mk" ? "text-rust" : "text-ink-soft")}
+              className={clsx("cursor-pointer transition-colors hover:text-ink", language === "mk" ? "text-rust" : "text-ink-soft")}
             >
               MK
             </button>
@@ -99,7 +99,7 @@ export function Navbar() {
               type="button"
               onClick={() => changeLanguage("en")}
               aria-pressed={language === "en"}
-              className={clsx("transition-colors hover:text-ink", language === "en" ? "text-rust" : "text-ink-soft")}
+              className={clsx("cursor-pointer transition-colors hover:text-ink", language === "en" ? "text-rust" : "text-ink-soft")}
             >
               EN
             </button>
@@ -147,7 +147,7 @@ export function Navbar() {
                   setIsOpen(false);
                 }}
                 aria-pressed={language === "mk"}
-                className={clsx("text-sm font-semibold transition-colors hover:text-ink", language === "mk" ? "text-rust" : "text-ink-soft")}
+                className={clsx("cursor-pointer text-sm font-semibold transition-colors hover:text-ink", language === "mk" ? "text-rust" : "text-ink-soft")}
               >
                 MK
               </button>
@@ -159,7 +159,7 @@ export function Navbar() {
                   setIsOpen(false);
                 }}
                 aria-pressed={language === "en"}
-                className={clsx("text-sm font-semibold transition-colors hover:text-ink", language === "en" ? "text-rust" : "text-ink-soft")}
+                className={clsx("cursor-pointer text-sm font-semibold transition-colors hover:text-ink", language === "en" ? "text-rust" : "text-ink-soft")}
               >
                 EN
               </button>

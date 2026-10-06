@@ -73,6 +73,7 @@ export function Footer() {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={(event) => { if (item.href === '#') event.preventDefault() }}
                   target="_blank"
                   rel="noreferrer"
                   className="group inline-flex items-center gap-2 text-sm text-cream/65 transition-colors hover:text-cream"

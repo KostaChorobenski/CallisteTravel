@@ -57,7 +57,7 @@ export function Destinations() {
   }
 
   return (
-      <main>
+      <div>
         <Seo
           title={t('seo.destinations.title')}
           description={t('seo.destinations.description')}
@@ -128,6 +128,7 @@ export function Destinations() {
                           key={value}
                           type="button"
                           onClick={() => setRegion(value)}
+                          aria-pressed={region === value}
                           className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                               region === value
                                   ? 'border-rust bg-rust text-cream'
@@ -151,6 +152,7 @@ export function Destinations() {
                           key={value}
                           type="button"
                           onClick={() => setType(value)}
+                          aria-pressed={type === value}
                           className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
                               type === value
                                   ? 'border-rust bg-rust text-cream'
@@ -213,6 +215,6 @@ export function Destinations() {
             <DestinationsMap />
           </Container>
         </section>
-      </main>
+      </div>
   )
 }

@@ -9,15 +9,20 @@ export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-
-    if (!stored) {
+    try {
+      const stored = window.localStorage.getItem(STORAGE_KEY)
+      setIsVisible(stored !== 'accepted' && stored !== 'rejected')
+    } catch {
       setIsVisible(true)
     }
   }, [])
 
   function respond(choice: 'accepted' | 'rejected') {
-    window.localStorage.setItem(STORAGE_KEY, choice)
+    try {
+      window.localStorage.setItem(STORAGE_KEY, choice)
+    } catch {
+      // The banner can still be dismissed when browser storage is blocked.
+    }
     setIsVisible(false)
   }
 

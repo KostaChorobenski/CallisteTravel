@@ -1,3 +1,4 @@
+import { TravelSteps } from '../components/home/TravelSteps'
 import { useTranslation } from 'react-i18next'
 import { Hero } from '../components/home/Hero'
 import { FeaturedDestinations } from '../components/home/FeaturedDestinations'
@@ -18,6 +19,7 @@ export function Home() {
       <Hero />
       <FeaturedDestinations />
       <WhyCalliste />
+      <TravelSteps />
       <JournalTeaser />
     </>
   )

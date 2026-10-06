@@ -29,7 +29,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-5 max-w-4xl text-5xl leading-[0.98] text-cream sm:text-6xl md:text-7xl lg:text-8xl">
-            Таму каде
+            Таму каде што
             <br />
             <span className="text-cream/80">мапите завршуваат.</span>
           </h1>

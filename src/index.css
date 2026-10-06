@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Suppress only Google Translate's hover highlight on translated text. */
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
 @theme {
   /* Brand palette — warm, earthy, editorial (not generic teal-tropical) */
   --color-cream: #faf5ee;

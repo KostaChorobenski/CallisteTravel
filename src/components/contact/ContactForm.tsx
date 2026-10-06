@@ -2,6 +2,8 @@ import { useId, useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { PaperPlaneTilt } from '@phosphor-icons/react'
 import { Button } from '../ui/Button'
+import { useSearchParams } from 'react-router-dom'
+import { destinationById } from '../../data/destinations'
 
 type FormValues = {
   name: string
@@ -29,7 +31,11 @@ const fieldInputClass =
 export function ContactForm() {
   const { t } = useTranslation()
   const formId = useId()
-  const [values, setValues] = useState<FormValues>(initialValues)
+  const [searchParams] = useSearchParams()
+  const [values, setValues] = useState<FormValues>(() => {
+    const destination = destinationById(searchParams.get('destination') ?? '')
+    return { ...initialValues, subject: destination ? `Прашање за ${destination.title}` : '' }
+  })
   const [touched, setTouched] = useState<TouchedFields>({})
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)

@@ -1,9 +1,15 @@
+import { TravelFaq } from '../components/contact/TravelFaq'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { PageHero } from '../components/ui/PageHero'
+import pageHeroImage from '../assets/images/shoreline-palms.jpg'
 import { motion } from 'framer-motion'
 import {
   EnvelopeSimple,
   InstagramLogo,
   FacebookLogo,
   Phone,
+  Clock,
   MapPin,
   ArrowUpRight,
 } from '@phosphor-icons/react'
@@ -21,6 +27,13 @@ const socialIcons = {
 
 export function Contact() {
   const { t } = useTranslation()
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash === '#contact-form') {
+      document.getElementById('contact-form')?.scrollIntoView({ behavior: 'instant' })
+    }
+  }, [hash])
 
   return (
     <>
@@ -30,7 +43,7 @@ export function Contact() {
         keywords={t('seo.contact.keywords')}
       />
 
-      <section className="border-b border-ink/10 bg-cream-soft">
+      <PageHero image={pageHeroImage}>
         <Container className="py-16 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -38,23 +51,23 @@ export function Contact() {
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+            <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-cream/75">
               {t('contact.eyebrow')}
             </span>
 
-            <h1 className="mt-5 text-4xl leading-[1.08] sm:text-5xl md:text-7xl">
+            <h1 className="text-cream mt-5 text-4xl leading-[1.08] sm:text-5xl md:text-7xl">
               {t('contact.titleLine1')}
-              <span className="text-rust"> {t('contact.titleLine2')}</span>
+              <span className="text-cream/75"> {t('contact.titleLine2')}</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg md:text-xl">
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-cream/80 sm:text-lg md:text-xl">
               {t('contact.intro')}
             </p>
           </motion.div>
         </Container>
-      </section>
+      </PageHero>
 
-      <section className="py-16 md:py-28">
+      <section id="contact-form" className="scroll-mt-24 py-16 md:py-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <motion.div
@@ -165,12 +178,23 @@ export function Contact() {
                 />
               </a>
 
+              <div className="flex items-start gap-4 rounded-card border border-ink/10 bg-cream-soft p-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-rust/10 text-rust">
+                  <Clock size={21} />
+                </span>
+                <div>
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-ink/40">Работно време</h2>
+                  <p className="mt-2 text-sm font-medium text-ink">Понеделник – петок: 09:00–17:00</p>
+                  <p className="mt-1 text-sm text-ink-soft">Сабота и недела: неработни денови</p>
+                </div>
+              </div>
+
               <div className="rounded-card bg-ink p-8 text-cream md:p-10">
                 <span className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-cream/50">
                   {t('contact.followUs')}
                 </span>
 
-                <h2 className="mt-5 font-display text-3xl leading-tight md:text-4xl">
+                <h2 className="mt-5 font-display text-3xl leading-tight text-cream md:text-4xl">
                   {t('contact.followTitle')}
                 </h2>
 
@@ -187,6 +211,7 @@ export function Contact() {
                       <a
                         key={item.label}
                         href={item.href}
+                  onClick={(event) => { if (item.href === '#') event.preventDefault() }}
                         target="_blank"
                         rel="noreferrer"
                         className="group flex items-center justify-between rounded-full border border-cream/10 px-5 py-3.5 text-sm text-cream/75 transition-colors hover:border-rust hover:bg-rust hover:text-cream"
@@ -231,6 +256,7 @@ export function Contact() {
           </motion.div>
         </Container>
       </section>
+      <TravelFaq />
     </>
   )
 }

@@ -1,3 +1,5 @@
+import { PageHero } from '../components/ui/PageHero'
+import pageHeroImage from '../assets/images/hammock-cove.jpg'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react'
 import { Link, useParams } from 'react-router-dom'
@@ -17,7 +19,7 @@ export function JournalEntry() {
     }
 
     return (
-        <main>
+        <div>
             <Seo
                 title={t('seo.journalEntry.title', { name: entry.title })}
                 description={t('seo.journalEntry.description', {
@@ -25,7 +27,7 @@ export function JournalEntry() {
                 })}
                 type="article"
             />
-            <section className="border-b border-ink/10 bg-cream-soft">
+            <PageHero image={pageHeroImage}>
                 <Container className="py-20 md:py-28">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
@@ -35,28 +37,28 @@ export function JournalEntry() {
                     >
                         <Link
                             to="/dnevnik"
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-ink-soft transition-colors hover:text-rust"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-cream/80 transition-colors hover:text-cream"
                         >
                             <ArrowLeft size={17} />
                             Назад кон дневникот
                         </Link>
 
                         <div className="mt-10">
-              <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-rust">
+              <span className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-cream/75">
                 {entry.category}
               </span>
 
-                            <h1 className="mt-5 text-5xl leading-[1.05] md:text-7xl">
+                            <h1 className="text-cream mt-5 text-5xl leading-[1.05] md:text-7xl">
                                 {entry.title}
                             </h1>
 
-                            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
+                            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/80 md:text-xl">
                                 {entry.excerpt}
                             </p>
                         </div>
                     </motion.div>
                 </Container>
-            </section>
+            </PageHero>
 
             <section className="py-20 md:py-28">
                 <Container>
@@ -98,6 +100,6 @@ export function JournalEntry() {
                     </div>
                 </Container>
             </section>
-        </main>
+        </div>
     )
 }

@@ -1,3 +1,4 @@
+import { travelInfo } from '../data/travelInfo'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft,
@@ -21,8 +22,10 @@ export function Destination() {
     return <NotFound />
   }
 
+  const practical = travelInfo[destination.id]
+
   return (
-    <main>
+    <div>
       <Seo
         title={t('seo.destination.title', { name: destination.title })}
         description={t('seo.destination.description', {
@@ -147,11 +150,31 @@ export function Destination() {
               </p>
 
               <div className="mt-6 h-px bg-ink/10" />
+              {practical ? (
+                <div className="mt-6">
+                  <h4 className="text-lg">Практични информации</h4>
+                  <dl className="mt-4 space-y-4 text-sm">
+                    <div><dt className="font-semibold text-ink">Период за посета</dt><dd className="mt-1 text-ink-soft">{practical.season}</dd></div>
+                    <div><dt className="font-semibold text-ink">Предложено времетраење</dt><dd className="mt-1 text-ink-soft">{practical.duration}</dd></div>
+                    <div><dt className="font-semibold text-ink">Тип на патување</dt><dd className="mt-1 text-ink-soft">{practical.style}</dd></div>
+                  </dl>
+                  <a href={practical.source} target="_blank" rel="noreferrer" className="mt-4 inline-block text-xs font-semibold text-rust hover:text-rust-dark">Повеќе за сезоната ↗</a>
+                </div>
+              ) : null}
+
 
               <p className="mt-6 text-sm leading-relaxed text-ink-soft">
                 Откријте го местото со свое темпо. Најубавите детали често се
                 наоѓаат подалеку од главната рута.
               </p>
+
+              <Link
+                to={`/kontakt?destination=${encodeURIComponent(destination.id)}#contact-form`}
+                className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-rust px-5 py-3 text-sm font-semibold text-cream transition-colors hover:bg-rust-dark"
+              >
+                Прашај за ова патување
+                <ArrowUpRight size={18} />
+              </Link>
 
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${destination.latitude},${destination.longitude}`}
@@ -273,6 +296,6 @@ className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-rust t
         </div>
     </Container>
 </section>
-</main>
+</div>
 )
 }
