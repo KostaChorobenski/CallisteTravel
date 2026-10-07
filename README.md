@@ -86,6 +86,8 @@ The cookie banner saves the visitor's choice locally. Map and translation servic
 
 Deploy the contents of `dist/` to a static host. Configure an SPA fallback to `index.html` for application routes so direct visits and refreshes on nested URLs work correctly.
 
+For Vercel, the included `vercel.json` configures this fallback for all routes, including page reloads when switching languages. Use the Vite framework preset with `npm run build` and `dist` as the output directory.
+
 ## Team
 
 - Сергеј Денковски
