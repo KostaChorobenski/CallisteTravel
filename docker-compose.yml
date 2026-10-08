@@ -1,9 +1,9 @@
-name: calliste-travel
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: unless-stopped
+    cpus: 0.25
+    mem_limit: 64m
     expose:
       - "80"

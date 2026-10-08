@@ -94,6 +94,8 @@ The repository contains `Dockerfile`, `nginx.conf`, `docker-compose.yml`, and
 `stack.yml`. Docker builds the Vite site and Nginx serves it on port 80 with an
 SPA fallback for direct visits to nested routes. RepoRun exposes the `web`
 service through its managed ingress and requires FINKI CAS sign-in.
+The web service uses 0.25 CPU and 64 MB of memory, matching RepoRun's static
+Nginx template. RepoRun manages the container lifecycle.
 
 Configure RepoRun with this repository, branch `main`, and path `/`. Give its
 deploy key read access to the GitHub repository if required, then run Validate
