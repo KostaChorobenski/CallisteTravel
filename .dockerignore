@@ -1,0 +1,15 @@
+# Only application build inputs enter the Docker context.
+**
+!package.json
+!package-lock.json
+!index.html
+!vite.config.ts
+!tsconfig*.json
+!public/
+!public/**
+!src/
+!src/**
+!nginx.conf
+!Dockerfile
+.claude/
+**/.claude/

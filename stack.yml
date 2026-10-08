@@ -1,0 +1,8 @@
+version: 1
+ingress:
+  - name: app
+    service: web
+    port: 80
+    primary: true
+    access:
+      type: cas

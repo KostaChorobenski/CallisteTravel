@@ -88,6 +88,28 @@ Deploy the contents of `dist/` to a static host. Configure an SPA fallback to `i
 
 For Vercel, the included `vercel.json` configures this fallback for all routes, including page reloads when switching languages. Use the Vite framework preset with `npm run build` and `dist` as the output directory.
 
+## RepoRun deployment
+
+The repository contains `Dockerfile`, `nginx.conf`, `docker-compose.yml`, and
+`stack.yml`. Docker builds the Vite site and Nginx serves it on port 80 with an
+SPA fallback for direct visits to nested routes. RepoRun exposes the `web`
+service through its managed ingress and requires FINKI CAS sign-in.
+
+Configure RepoRun with this repository, branch `main`, and path `/`. Give its
+deploy key read access to the GitHub repository if required, then run Validate
+and Deploy. RepoRun fetches the repository directly; a ZIP upload is not part of
+the documented deployment flow. No environment values are needed.
+
+To build locally with Docker:
+
+```bash
+docker compose build
+docker compose run --rm --service-ports -p 8080:80 web
+```
+
+Open `http://localhost:8080`. The `/health` endpoint returns `ok`.
+The `.claude/` folder is excluded from Git and the Docker build context.
+
 ## Team
 
 - Сергеј Денковски
